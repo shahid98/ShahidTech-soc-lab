@@ -3,7 +3,7 @@
 | Phase | Deliverable | Status |
 | --- | --- | --- |
 | 0 - Planning and virtualization | Host assessment, network design, recovery plan | In Progress |
-| 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | Not started |
+| 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | In Progress |
 | 2 - Workstation | Verified domain join and policy application | Not started |
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Not started |
 | 4 - Wazuh | Centralized logs and agent connectivity | Not started |
@@ -30,17 +30,24 @@
 - No virtual machines created yet.
 - Phase 0 remains in progress.
 
-## Current task
+### DC01 baseline — installation and networking verified
 
-Record host OS edition, CPU model, installed RAM, available disk space, and virtualization support before choosing a hypervisor. Exclude serial numbers and personal identifiers from public documentation.
+- Windows Server 2025 Standard Evaluation with Desktop Experience installed.
+- Windows computer name verified as DC01.
+- Hyper-V: Generation 2, 2 vCPUs, 4 GB static RAM.
+- Connected to SOC-LAB Private switch.
+- Static IPv4: 10.10.10.10/24; address state Preferred.
+- DHCP disabled.
+- DNS client: 10.10.10.10; no default gateway.
+- AD DS and DNS server roles not yet configured.
+- Evaluation activation and updates remain pending.
+- Next: protect the baseline before installing server roles.
 
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git not initialized.
 
-## Known issues
 
-Git is unavailable in the terminal and was not found in common installation locations. Hardware and hypervisor remain unverified.
 
 ## Session log
 
