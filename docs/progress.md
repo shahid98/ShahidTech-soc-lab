@@ -14,13 +14,18 @@
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
 
-### Phase 0 checkpoint — isolated switch verified
+### Phase 0 checkpoint — VM storage configured
 
 - Host: Windows 11 Pro; Ryzen 7 8845HS; 27.8 GB usable RAM.
-- Reported free storage: C: 259.16 GB; D: 55.16 GB.
+- Reported free storage: C: 259.16 GB; D: 99.8 GB.
 - Hyper-V feature: Enabled.
 - Running hypervisor detected: True.
 - SOC-LAB: Private switch, verified with Get-VMSwitch.
+- Hyper-V default configuration path: C:\SOC-Lab\VirtualMachines
+- Hyper-V default virtual disk path: C:\SOC-Lab\VirtualHardDisks
+- Installation media folder: C:\SOC-Lab\ISO
+- Verified default paths with Get-VMHost.
+- Get-VM returned no registered virtual machines.
 - Default Switch: Internal; unchanged.
 - No virtual machines created yet.
 - Phase 0 remains in progress.
