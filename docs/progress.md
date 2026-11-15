@@ -28,24 +28,26 @@
 - Get-VM returned no registered virtual machines.
 - Default Switch: Internal; unchanged.
 - No virtual machines created yet.
-- Phase 0 remains in progress.
+- Phase 0 remains completed.
 
-### DC01 baseline — installation and networking verified
+### DC01 domain promotion — baseline verified
 
-- Windows Server 2025 Standard Evaluation with Desktop Experience installed.
-- Windows computer name verified as DC01.
-- Hyper-V: Generation 2, 2 vCPUs, 4 GB static RAM.
-- Connected to SOC-LAB Private switch.
-- Static IPv4: 10.10.10.10/24; address state Preferred.
-- DHCP disabled.
-- DNS client: 10.10.10.10; no default gateway.
-- AD DS and DNS server roles not yet configured.
+- Created forest/domain: ad.shahidtech.test.
+- NetBIOS name: SHAHIDTECH.
+- Forest and domain functional levels configured as Windows Server 2025.
+- NTDS and DNS services verified Running.
+- LDAP domain-controller SRV record resolves to dc01.ad.shahidtech.test:389.
+- DC01 hostname resolves to 10.10.10.10.
+- SYSVOL and NETLOGON shares verified present.
+- dcdiag passed Connectivity, Advertising, SysVolCheck, and NetLogons.
+- DNS delegation warning accepted because no parent DNS zone exists in this isolated lab.
+- Pre-AD checkpoint exists; no independent backup available.
 - Evaluation activation and updates remain pending.
-- Next: protect the baseline before installing server roles.
+- Phase 1 remains in progress.
 
 ## Decisions
 
-2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git not initialized.
+2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
 
 
 
