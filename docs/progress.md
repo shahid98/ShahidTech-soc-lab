@@ -45,6 +45,18 @@
 - Evaluation activation and updates remain pending.
 - Phase 1 remains in progress.
 
+### AD organization and first employee — verified
+
+- Created ShahidTech OU at the domain root.
+- Created Employees and workstations child OUs.
+- Verified accidental-deletion protection on all three OUs.
+- Created fictional employee Alex Morgan in Employees.
+- Sign-in name: alex.morgan@ad.shahidtech.test.
+- Account enabled; password change required at next sign-in.
+- Verified group membership: Domain Users only.
+- Employee workstation sign-in remains untested.
+- DC01 remains in the Domain Controllers OU.
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
