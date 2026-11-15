@@ -96,6 +96,31 @@
 
 ![Enhanced Session remote-logon denial](../evidence/phase-02/04-enhanced-session-access-denied.png)
 
+### Employee share — client access validated
+
+Tested from WIN11-01 as SHAHIDTECH\alex.morgan:
+
+| Operation | Observed result |
+|---|---|
+| Read welcome.txt | Allowed |
+| Create alex-write-test.txt | Access denied |
+| Append to welcome.txt | Access denied |
+| Delete delete-test.txt | Access denied; file remained |
+| Re-read welcome.txt | Original two lines unchanged |
+
+Access follows Alex → GG-ShahidTech-Employees →
+DL-EmployeeShare-Read → resource permissions.
+
+These SMB tests validate combined share and NTFS restrictions;
+they do not isolate either permission layer.
+
+#### Evidence
+
+- [Successful read](../evidence/phase-02/06-employee-share-read-success.png)
+- [Creation denied](../evidence/phase-02/07-employee-share-create-denied.png)
+- [Modification denied](../evidence/phase-02/08-employee-share-modify-denied.png)
+- [Deletion denied](../evidence/phase-02/09-employee-share-delete-denied.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
