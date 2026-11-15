@@ -140,6 +140,15 @@ they do not isolate either permission layer.
 - [Applied policy](../evidence/phase-02/12-gpo-applied-result.png)
 - [Visible notice](../evidence/phase-02/13-gpo-signin-notice-visible.png)
 
+### Workstation domain trust — verified
+
+- Test-ComputerSecureChannel -Verbose returned True on WIN11-01.
+- Confirmed the secure channel to ad.shahidtech.test is healthy.
+- RSOP identified ShahidTech-Workstation-Baseline as the source of the sign-in notice settings.
+- Reviewed GPO linking versus the separate Enforced option.
+
+[Secure-channel verification](../evidence/phase-02/14-domain-secure-channel.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
