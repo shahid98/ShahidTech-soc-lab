@@ -121,6 +121,25 @@ they do not isolate either permission layer.
 - [Modification denied](../evidence/phase-02/08-employee-share-modify-denied.png)
 - [Deletion denied](../evidence/phase-02/09-employee-share-delete-denied.png)
 
+
+### Workstation Group Policy — delivery verified
+
+- Moved WIN11-01 from Computers into ShahidTech/workstations.
+- Created ShahidTech-Workstation-Baseline.
+- Configured the computer sign-in notice title and text.
+- Linked the GPO to workstations; link enabled, not enforced.
+- Verified gpresult lists the GPO as applied from DC01.
+- Verified legalnoticecaption and legalnoticetext match the policy.
+- Confirmed the notice appears before sign-in.
+- This notice demonstrates policy delivery; it does not enforce access restrictions.
+
+#### Evidence
+
+- [Computer OU placement](../evidence/phase-02/10-workstation-ou-placement.png)
+- [GPO settings](../evidence/phase-02/11-gpo-signin-notice-settings.png)
+- [Applied policy](../evidence/phase-02/12-gpo-applied-result.png)
+- [Visible notice](../evidence/phase-02/13-gpo-signin-notice-visible.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
