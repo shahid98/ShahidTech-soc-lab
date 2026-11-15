@@ -65,6 +65,21 @@
 - No resource permissions assigned to the employee group yet.
 - Reviewed OU organization, group-based access, and least privilege.
 
+### Employee share — configured; client testing pending
+
+- Created DL-EmployeeShare-Read as a Domain Local security group.
+- Nested GG-ShahidTech-Employees inside it.
+- Verified recursive membership resolves to alex.morgan.
+- Created C:\LabShares\EmployeeShare on DC01 for this lab exercise.
+- Disabled NTFS inheritance while preserving existing entries.
+- Removed BUILTIN\Users permission entries.
+- Granted DL-EmployeeShare-Read inheritable Read & execute.
+- Published EmployeeShare with share-level Read for the access group.
+- Administrators retain Full Control at share and NTFS levels.
+- Created welcome.txt and verified inherited read permissions.
+- Pending: verify Alex can read but cannot create, modify, or delete files.
+- Lab limitation: file sharing is hosted on the domain controller.
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
