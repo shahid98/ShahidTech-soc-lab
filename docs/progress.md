@@ -57,6 +57,14 @@
 - Employee workstation sign-in remains untested.
 - DC01 remains in the Domain Controllers OU.
 
+### Employee security group — verified
+
+- Created GG-ShahidTech-Employees as a Global security group.
+- Added alex.morgan.
+- Verified Alex's memberships: Domain Users and GG-ShahidTech-Employees.
+- No resource permissions assigned to the employee group yet.
+- Reviewed OU organization, group-based access, and least privilege.
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
