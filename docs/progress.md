@@ -80,6 +80,22 @@
 - Pending: verify Alex can read but cannot create, modify, or delete files.
 - Lab limitation: file sharing is hosted on the domain controller.
 
+### WIN11-01 — domain sign-in and Enhanced Session verified
+
+- Installed Windows 11 Pro; Windows computer name is WIN11-01.
+- Configured 10.10.10.20/24 with DNS 10.10.10.10 and no gateway.
+- Verified domain-controller DNS discovery from the workstation.
+- Joined ad.shahidtech.test; verified PartOfDomain is True.
+- Signed in as SHAHIDTECH\alex.morgan; logon server was DC01.
+- Enhanced Session initially denied Alex remote logon.
+- Added Alex to WIN11-01's local Remote Desktop Users group.
+- Confirmed Enhanced Session works without granting Alex administrator privileges.
+- Employee-share read and denied-write tests remain pending.
+
+#### Troubleshooting evidence
+
+![Enhanced Session remote-logon denial](../evidence/phase-02/04-enhanced-session-access-denied.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
