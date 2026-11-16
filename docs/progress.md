@@ -201,6 +201,27 @@ they do not isolate either permission layer.
 [Audit GPO settings](../evidence/phase-03/09-workstation-audit-gpo-settings.png)
 [Client verification](../evidence/phase-03/10-workstation-audit-policy-applied.png)
 
+### Process creation and command-line logging — verified
+
+- Initial effective Process Creation policy: No Auditing.
+- Enabled Audit Process Creation: Success in the workstation auditing GPO.
+- Refreshed WIN11-01 and verified effective auditing: Success.
+- Observed event 4688 for Alex launching cmd.exe; command line was initially blank.
+- Enabled Include command line in process creation events centrally.
+- Verified client ProcessCreationIncludeCmdLine_Enabled value: 1.
+- Generated a harmless cmd.exe /c echo ShahidTech-4688-Test invocation.
+- Event 4688 recorded Alex, explorer.exe as parent, Medium integrity,
+  and the expected command line.
+- Command-line logging captures launch arguments, not every command
+  subsequently entered into an interactive shell.
+
+[Before configuration](../evidence/phase-03/11-process-creation-audit-before.png)
+[GPO setting](../evidence/phase-03/12-process-creation-gpo-setting.png)
+[Effective audit policy](../evidence/phase-03/13-process-creation-audit-applied.png)
+[Initial process event](../evidence/phase-03/14-cmd-process-created-4688.png)
+[Command-line setting applied](../evidence/phase-03/15-commandline-logging-enabled.png)
+[Command line recorded](../evidence/phase-03/16-process-commandline-4688.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
