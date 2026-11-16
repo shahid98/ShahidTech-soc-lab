@@ -287,6 +287,25 @@ they do not isolate either permission layer.
 [Recorded checks](../evidence/phase-03/23-script-outcome-verification.png)
 [File inspected separately](../evidence/phase-03/24-file-outcome-independent-check.png)
 
+### Security log capacity — verified after restart
+
+- Initial Security log maximum: 20971520 bytes (20 MiB).
+- Retention mode: Circular.
+- Configured 131072 KB (128 MiB) in the workstation auditing GPO.
+- gpupdate succeeded, but the active log initially remained at 20 MiB.
+- Client policy report confirmed the intended value and winning GPO.
+- After a normal workstation restart, Get-WinEvent reported
+  134217728 bytes (128 MiB), still Circular.
+- No log clearing or manual local size override was performed.
+- Larger capacity provides more buffer, not a guaranteed retention period.
+- Troubleshooting lesson: policy delivery and active service
+  configuration require separate verification.
+
+[Initial configuration](../evidence/phase-03/25-security-log-retention-before.png)
+[Policy delivery](../evidence/phase-03/26-security-log-policy-delivered.png)
+[Active capacity after restart](../evidence/phase-03/27-security-log-capacity-after-restart.png)
+
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
