@@ -275,7 +275,17 @@ they do not isolate either permission layer.
 [Client policy](../evidence/phase-03/21-transcription-policy-applied.png)
 [Command and output](../evidence/phase-03/22-transcription-command-and-output.png)
 
+### Script outcome verification — completed
 
+- Created ShahidTech-Outcome-Test.txt in Alex's temporary folder.
+- Test-Path returned True.
+- Get-Content returned "Authorized lab outcome test."
+- Opened the file separately in Notepad and confirmed matching content.
+- Transcript recorded the commands and verification output.
+- Lesson: recorded script content alone does not prove its intended effect.
+
+[Recorded checks](../evidence/phase-03/23-script-outcome-verification.png)
+[File inspected separately](../evidence/phase-03/24-file-outcome-independent-check.png)
 
 ## Decisions
 
