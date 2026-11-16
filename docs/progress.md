@@ -240,6 +240,24 @@ they do not isolate either permission layer.
 [Client configuration](../evidence/phase-03/17-powershell-logging-before.png)
 [Script-block event](../evidence/phase-03/18-powershell-scriptblock-4104.png)
 
+### Windows PowerShell Module Logging — verified
+
+- Enabled Module Logging in ShahidTech-Workstation-Auditing.
+- Configured module-name wildcard *.
+- Refreshed WIN11-01 policy and verified EnableModuleLogging = 1
+  and ModuleNames entry * = *.
+- Opened a new Windows PowerShell session as Alex.
+- Executed Write-Output "ShahidTech-4103-Test".
+- Event 4103 recorded the cmdlet invocation and parameter binding.
+- Related Out-Default event contained the same marker.
+- Both events shared user, timestamp, Host ID, Runspace ID,
+  and Pipeline ID 8.
+- GUI troubleshooting: the leftmost grid asterisk indicated a
+  new row; the module wildcard had to be entered in the Value cell.
+
+[Client configuration](../evidence/phase-03/19-module-logging-policy-applied.png)
+[Module execution evidence](../evidence/phase-03/20-powershell-module-event-4103.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
