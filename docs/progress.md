@@ -222,6 +222,24 @@ they do not isolate either permission layer.
 [Command-line setting applied](../evidence/phase-03/15-commandline-logging-enabled.png)
 [Command line recorded](../evidence/phase-03/16-process-commandline-4688.png)
 
+### Windows PowerShell Script Block Logging — verified
+
+- Windows PowerShell Operational channel enabled on WIN11-01.
+- ShahidTech-Workstation-Auditing defines EnableScriptBlockLogging
+  as DWORD 1.
+- Refreshed client policy and verified the client value is 1.
+- Executed Write-Output "ShahidTech-4104-Test" as Alex.
+- Event 4104 recorded the exact script text at
+  2026-11-15 22:37:05 Eastern.
+- Event UserId matches Alex's previously verified SID.
+- ScriptBlock ID: 790ac94d-51b6-424f-bef1-ca5a92ffef58.
+- Script Block Invocation Logging was not verified as enabled.
+- Event 4104 establishes captured script content, not successful
+  completion or command output.
+
+[Client configuration](../evidence/phase-03/17-powershell-logging-before.png)
+[Script-block event](../evidence/phase-03/18-powershell-scriptblock-4104.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
