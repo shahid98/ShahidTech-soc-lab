@@ -258,6 +258,25 @@ they do not isolate either permission layer.
 [Client configuration](../evidence/phase-03/19-module-logging-policy-applied.png)
 [Module execution evidence](../evidence/phase-03/20-powershell-module-event-4103.png)
 
+### Windows PowerShell transcription — content verified
+
+- Workstation auditing GPO enables transcription.
+- Verified EnableTranscripting = 1 on WIN11-01.
+- No custom output directory configured.
+- Observed a transcript under Alex's Documents/20261115 folder.
+- Transcript identifies SHAHIDTECH\alex.morgan, WIN11-01,
+  Windows PowerShell 5.1, and process ID 13900.
+- Captured whoami and its output.
+- Captured Write-Output "ShahidTech-Transcript-Test" and its output.
+- Raw transcripts remain outside Git; reviewed screenshot used as evidence.
+- Limitation: user-local storage is not centrally protected or tamper-resistant.
+- Clean transcript closure was not established by the captured excerpt.
+
+[Client policy](../evidence/phase-03/21-transcription-policy-applied.png)
+[Command and output](../evidence/phase-03/22-transcription-command-and-output.png)
+
+
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
