@@ -4,8 +4,8 @@
 | --- | --- | --- |
 | 0 - Planning and virtualization | Host assessment, network design, recovery plan | In Progress |
 | 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | In Progress |
-| 2 - Workstation | Verified domain join and policy application | Not started |
-| 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Not started |
+| 2 - Workstation | Verified domain join and policy application | In Progress |
+| 3 - Security logging | Windows, Sysmon, PowerShell telemetry | In Progress |
 | 4 - Wazuh | Centralized logs and agent connectivity | Not started |
 | 5 - SOC investigations | Evidence-backed incident reports | Not started |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
@@ -148,6 +148,29 @@ they do not isolate either permission layer.
 - Reviewed GPO linking versus the separate Enforced option.
 
 [Secure-channel verification](../evidence/phase-02/14-domain-secure-channel.png)
+
+### Authentication telemetry and time-zone correlation — verified
+
+- WIN11-01 effective Logon auditing: Success and Failure.
+- DC01 effective Kerberos Authentication Service, Kerberos Service
+  Ticket Operations, and Credential Validation auditing: Success.
+- Local policy GUI showed Not Configured; this did not mean
+  effective auditing was disabled.
+- Observed event 4624 for SYSTEM with Logon Type 5 (service).
+- Observed event 4624 for alex.morgan with Logon Type 10
+  (RemoteInteractive), consistent with Enhanced Session activity.
+- Negotiate and Key Length 0 alone did not establish the protocol.
+- DC01 recorded successful Kerberos TGT requests (4768) for Alex
+  from 10.10.10.20, with Result Code 0x0.
+- Initial event displays differed because DC01 used Pacific Time
+  and WIN11-01 used Eastern Time.
+- After UTC normalization, a TGT request and workstation logon
+  shared timestamp 2026-11-15T21:37:14Z.
+- Matching account, client IP, and time support correlation;
+  a timestamp match alone is not a unique session identifier.
+- Changed DC01 to Eastern Time and verified the existing latest
+  TGT event displays 4:37:16 PM instead of 1:37:16 PM.
+- Phase 3 remains in progress.
 
 ## Decisions
 
