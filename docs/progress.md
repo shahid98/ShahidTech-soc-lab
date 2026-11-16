@@ -185,6 +185,22 @@ they do not isolate either permission layer.
 [Controlled attempt](../evidence/phase-03/07-controlled-runas-failure.png)
 [Failed-logon event](../evidence/phase-03/08-alex-failed-logon-4625.png) 
 
+### Centralized workstation logon auditing — verified
+
+- Created ShahidTech-Workstation-Auditing.
+- Defined Audit Logon: Success and Failure.
+- Enabled audit subcategory settings to override legacy categories.
+- Linked the GPO to workstations; enabled, not enforced.
+- Refreshed computer policy on WIN11-01 successfully.
+- Fresh gpresult output lists the auditing GPO as applied from DC01.
+- auditpol confirms effective Logon auditing: Success and Failure.
+- SCENoApplyLegacyAuditPolicy verified as 1.
+- Logon auditing was already enabled before deployment; this
+  milestone explicitly defines and delivers the intended policy centrally.
+
+[Audit GPO settings](../evidence/phase-03/09-workstation-audit-gpo-settings.png)
+[Client verification](../evidence/phase-03/10-workstation-audit-policy-applied.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
