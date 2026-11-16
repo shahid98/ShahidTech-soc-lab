@@ -172,6 +172,19 @@ they do not isolate either permission layer.
   TGT event displays 4:37:16 PM instead of 1:37:16 PM.
 - Phase 3 remains in progress.
 
+### Controlled failed logon — verified
+
+- Test: one deliberate incorrect-password runas attempt as alex.morgan.
+- Test started: 2026-11-15T20:30:12-05:00.
+- Event 4625 recorded on WIN11-01 at 20:30:23 Eastern.
+- Logon Type 2; source ::1; logon process seclogo.
+- Status 0xC000006D; SubStatus 0xC000006A (incorrect password).
+- Result is consistent with the authorized test, not evidence of brute force.
+- Underlying authentication protocol remains unconfirmed.
+
+[Controlled attempt](../evidence/phase-03/07-controlled-runas-failure.png)
+[Failed-logon event](../evidence/phase-03/08-alex-failed-logon-4625.png) 
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
