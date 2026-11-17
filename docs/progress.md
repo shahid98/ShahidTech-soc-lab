@@ -627,3 +627,25 @@ After each lesson, record date, change, verification result, evidence link, know
 [Effective auditing](../evidence/phase-03/93-dc-process-creation-audit-applied.png)
 [Command-line policy and registry](../evidence/phase-03/94-dc-process-commandline-enabled.png)
 [Test process event](../evidence/phase-03/95-dc-process-commandline-event-4688.png)
+
+### DC01 PowerShell logging — script-block and module events verified
+
+- Enabled Script Block Logging through
+  ShahidTech-DomainController-Auditing.
+- Verified event 4104 captured the controlled script block
+  Write-Output "ShahidTech-DC01-4104-Test"
+  at 2026-11-17 01:41:13 Eastern.
+- Enabled Module Logging for all modules (*).
+- Verified the effective registry settings:
+  EnableModuleLogging = 1 and ModuleNames "*" = "*".
+- Verified event 4103 recorded Write-Output invocation and
+  InputObject parameter binding for ShahidTech-DC01-4103-Test
+  at 01:46:47 Eastern.
+- Both test events identified SHAHIDTECH\Administrator on DC01.
+- Console output separately confirmed the expected test markers.
+- PowerShell transcription remains unconfigured in this GPO.
+
+[Script-block policy before refresh](../evidence/phase-03/96-dc-scriptblock-policy-before-refresh.png)
+[Script-block event — 4104](../evidence/phase-03/97-dc-scriptblock-event-4104.png)
+[Effective module logging](../evidence/phase-03/98-dc-module-logging-applied.png)
+[Module invocation event — 4103](../evidence/phase-03/99-dc-module-logging-event-4103.png)
