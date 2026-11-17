@@ -578,3 +578,33 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [Deletion event](../evidence/phase-03/81-audit-account-deletion-event-4726.png)
 [Directory-state verification](../evidence/phase-03/82-audit-account-cleanup-verified.png)
+
+### DC01 security-group auditing — membership and cleanup verified
+
+- Configured Audit Security Group Management: Success and Failure
+  in ShahidTech-DomainController-Auditing.
+- Refreshed DC01 policy and verified the effective auditing setting.
+- Created disposable global security group GG-Audit-Validation.
+- Recorded its SID:
+  S-1-5-21-92692191-3603919779-4041441548-1109.
+- Event 4728 recorded Alex being added at
+  2026-11-17 01:08:52 Eastern.
+- Event 4729 recorded Alex being removed at 01:10:24 Eastern.
+- Verified the test group had no remaining members.
+- Verified Alex retained Domain Users and GG-ShahidTech-Employees.
+- Event 4730 recorded deletion of the test group at
+  01:14:49 Eastern.
+- The membership-change and deletion events identified
+  SHAHIDTECH\Administrator as the acting account.
+- Queried DC01 afterward; no active GG-Audit-Validation group returned.
+- Cleanup complete.
+
+[Audit policy setting](../evidence/phase-03/83-dc-security-group-audit-setting.png)
+[Effective auditing](../evidence/phase-03/84-dc-security-group-audit-applied.png)
+[Test group created](../evidence/phase-03/85-audit-validation-group-created.png)
+[Membership added](../evidence/phase-03/86-audit-group-member-added.png)
+[Addition event — 4728](../evidence/phase-03/87-global-group-member-added-event-4728.png)
+[Membership removal evidence](../evidence/phase-03/88-audit-group-member-removed.png)
+[Empty group verified](../evidence/phase-03/89-audit-group-membership-empty.png)
+[Alex membership restored](../evidence/phase-03/90-alex-membership-restored.png)
+[Group deletion event — 4730](../evidence/phase-03/91-global-audit-group-deleted-event-4730.png)
