@@ -732,3 +732,26 @@ After each lesson, record date, change, verification result, evidence link, know
 [VSOCK listener](../evidence/phase-04/05-xrdp-vsock-listener-working.png)
 [Enhanced Session working](../evidence/phase-04/06-ubuntu-enhanced-session-working.png)
 [Ubuntu baseline](../evidence/phase-04/07-ubuntu-baseline-and-temporary-network.png)
+
+### Wazuh central components — installation and dashboard verified
+
+- Updated Ubuntu and rebooted; verified kernel 6.8.0-149-generic.
+- Downloaded the Wazuh 4.14 installation assistant from packages.wazuh.com.
+- Shell syntax check completed without errors.
+- Configured SOC-LAB interface eth1 with 10.10.10.30/24.
+- Verified connectivity to DC01 at 10.10.10.10.
+- Temporary internet access remains through eth0 on Default Switch.
+- Verified IPv4 forwarding was disabled (0).
+- Completed the all-in-one Wazuh installation.
+- Verified wazuh-indexer, wazuh-manager, filebeat, and
+  wazuh-dashboard were all active.
+- Successfully signed in to https://10.10.10.30.
+- Dashboard showed no endpoint agents registered.
+- Windows agent enrollment and event ingestion remain pending.
+
+
+[Updated Ubuntu baseline](../evidence/phase-04/08-ubuntu-updated-baseline.png)
+[Installer downloaded](../evidence/phase-04/09-wazuh-installer-downloaded.png)
+[Lab networking](../evidence/phase-04/10-wazuh-lab-network-configured.png)
+[Dashboard first login](../evidence/phase-04/11-wazuh-dashboard-first-login.png)
+[Services active](../evidence/phase-04/12-wazuh-services-active.png)
