@@ -400,6 +400,18 @@ they do not isolate either permission layer.
 [Network connection](../evidence/phase-03/47-powershell-network-connection.png)
 [Process correlation](../evidence/phase-03/48-network-process-guid-correlation.png)
 
+### Sysmon capacity and internal-error check — verified
+
+- Sysmon Operational logging is enabled.
+- Maximum size: 65536 KB (64 MiB).
+- Retention: overwrite oldest events as needed.
+- Kept existing capacity and retention settings unchanged.
+- Filtering retained records for event 255 returned zero matches.
+- No retained internal-error events were observed; this does not
+  prove complete historical collection or absence of event loss.
+
+[Log capacity](../evidence/phase-03/49-sysmon-log-capacity-before.png)
+[Internal-error check](../evidence/phase-03/50-sysmon-internal-error-check.png)
 
 ## Decisions
 
