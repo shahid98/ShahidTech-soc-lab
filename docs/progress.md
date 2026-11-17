@@ -540,3 +540,27 @@ After each lesson, record date, change, verification result, evidence link, know
 [Controlled attempt](../evidence/phase-03/71-dc-audit-controlled-failure-test.png)
 [DC01 Kerberos failure](../evidence/phase-03/72-dc-kerberos-preauthentication-failure.png)
 [Workstation failure](../evidence/phase-03/73-workstation-correlated-logon-failure.png)
+
+### DC01 user-account auditing — creation and change verified
+
+- Configured User Account Management: Success and Failure
+  in ShahidTech-DomainController-Auditing.
+- Refreshed DC01 policy and verified the effective setting.
+- Created disabled account audit.test in Employees.
+- Event 4720 recorded creation at 2026-11-17 00:41:52 Eastern.
+- Verified account SID:
+  S-1-5-21-92692191-3603919779-4041441548-1108.
+- Changed only DisplayName to "Audit Test User - Validation".
+- Verified the sign-in name and SID remained unchanged,
+  and Enabled remained False.
+- Event 4738 recorded the new display name at 00:52:57 Eastern.
+- Both events identified Administrator as the acting account.
+- The actor account alone does not establish human identity
+  or authorization.
+- Test account remains disabled; cleanup is pending.
+
+[Effective auditing](../evidence/phase-03/75-dc-user-account-audit-applied.png)
+[Creation event](../evidence/phase-03/77-audit-user-creation-event-4720.png)
+[SID and disabled state](../evidence/phase-03/78-audit-account-sid-and-disabled-state.png)
+[Verified change](../evidence/phase-03/79-audit-account-displayname-change.png)
+[Change event](../evidence/phase-03/80-audit-account-change-event-4738.png)
