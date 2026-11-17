@@ -429,6 +429,27 @@ they do not isolate either permission layer.
 [Loaded DNS rule](../evidence/phase-03/51-sysmon-dns-filter-loaded.png)
 [Query and event evidence](../evidence/phase-03/52-powershell-dns-query.png)
 
+### DNS reverse-lookup troubleshooting — verified
+
+- Observed nslookup timeouts despite receiving the correct forward answer.
+- An explicit, trailing-dot A query returned an authoritative
+  NOERROR response, but initial server identification still timed out.
+- Direct PTR lookup timed out; DC01 had no reverse lookup zone.
+- Created AD-integrated 10.10.10.in-addr.arpa with secure updates.
+- Added PTR: 10.10.10.10 → dc01.ad.shahidtech.test.
+- WIN11-01 then resolved the PTR successfully.
+- Repeated trailing-dot A query identified DC01 by name and
+  returned 10.10.10.10 without timeouts.
+- Original non-trailing-dot query was not yet retested.
+- Sysmon DNS filter coverage comparison remains pending.
+
+[Observed timeout](../evidence/phase-03/53-nslookup-timeout-observed.png)
+[Forward-query diagnosis](../evidence/phase-03/54-dns-forward-query-debug.png)
+[Missing reverse zone](../evidence/phase-03/55-reverse-zone-missing.png)
+[Zone and PTR created](../evidence/phase-03/56-reverse-zone-and-ptr-created.png)
+[Successful retest](../evidence/phase-03/57-dns-reverse-and-forward-retest.png)
+
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
