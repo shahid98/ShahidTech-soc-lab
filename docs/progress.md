@@ -305,6 +305,21 @@ they do not isolate either permission layer.
 [Policy delivery](../evidence/phase-03/26-security-log-policy-delivered.png)
 [Active capacity after restart](../evidence/phase-03/27-security-log-capacity-after-restart.png)
 
+### Observed log history and PowerShell capacity — verified
+
+- WIN11-01 Security log observed range:
+  2026-11-15 01:03:37 to 2026-11-16 19:02:00 Eastern.
+- Observed span: 41.97 hours; not a guaranteed retention period
+  or proof of uninterrupted collection.
+- PowerShell Operational log initially had a 15 MiB limit.
+- Increased its limit locally to 67108864 bytes (64 MiB).
+- Verified Circular retention remained unchanged.
+- PowerShell channel capacity is locally configured;
+  Security log capacity is managed through the domain GPO.
+- Centralized collection remains pending.
+
+[Observed Security history](../evidence/phase-03/28-security-log-observed-timespan.png)
+[PowerShell log capacity](../evidence/phase-03/29-powershell-log-capacity.png)
 
 ## Decisions
 
