@@ -667,3 +667,18 @@ After each lesson, record date, change, verification result, evidence link, know
 [Executable signature](../evidence/phase-03/100-dc-sysmon-signature-valid.png)
 [Installation and loaded configuration](../evidence/phase-03/101-dc-sysmon-installed-and-configured.png)
 [Process creation event — 1](../evidence/phase-03/102-dc-sysmon-process-event-1.png)
+
+### DC01 log capacity — verified
+
+- Verified Security capacity was 128 MiB and Sysmon Operational
+  capacity was 64 MiB.
+- Increased PowerShell Operational capacity from 15 to 64 MiB
+  using wevtutil.
+- Verified its active MaximumSizeInBytes was 67108864.
+- All three logs use Circular retention: oldest events are
+  overwritten when capacity is reached.
+- These capacities provide local buffers, not a guaranteed
+  retention period or an independent archive.
+- PowerShell log capacity was configured locally on DC01.
+
+[Log capacities and verified PowerShell increase](../evidence/phase-03/103-dc-powershell-log-capacity.png)
