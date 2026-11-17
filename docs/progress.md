@@ -464,6 +464,23 @@ they do not isolate either permission layer.
 [nslookup process](../evidence/phase-03/58-nslookup-process-created.png)
 [No matching DNS event](../evidence/phase-03/59-nslookup-dns-event-not-found.png)
 
+### Expanded Sysmon DNS coverage — verified with limitations
+
+- Replaced the PowerShell-only DnsQuery include rule with an
+  empty exclude rule.
+- Verified Sysmon validated and loaded the configuration.
+- Observed event 22 from additional background processes.
+- Inspected nslookup attempts had no matching event 22.
+- A subsequent Resolve-DnsName test as Alex produced event 22
+  for powershell.exe, PID 6948.
+- QueryStatus 0 and QueryResults 10.10.10.10 matched the lookup.
+- Collection works, but coverage of every DNS query path is
+  not established. The nslookup visibility gap remains unexplained.
+- NetworkConnect collection remains limited to powershell.exe.
+
+[Expanded rule](../evidence/phase-03/60-sysmon-dns-expanded-filter.png)
+[Additional process coverage](../evidence/phase-03/61-expanded-dns-process-coverage.png)
+[Positive control](../evidence/phase-03/62-dns-collection-positive-control.png)
 
 ## Decisions
 
