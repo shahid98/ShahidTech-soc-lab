@@ -413,6 +413,22 @@ they do not isolate either permission layer.
 [Log capacity](../evidence/phase-03/49-sysmon-log-capacity-before.png)
 [Internal-error check](../evidence/phase-03/50-sysmon-internal-error-check.png)
 
+### Sysmon DNS-query telemetry — verified
+
+- Added a DnsQuery include rule targeting powershell.exe.
+- Sysmon validated and loaded the updated XML.
+- Alex queried dc01.ad.shahidtech.test from WIN11-01.
+- Resolve-DnsName returned 10.10.10.10.
+- Sysmon event 22 recorded PowerShell PID 7268, Alex's identity,
+  QueryStatus 0, and QueryResults 10.10.10.10.
+- DNS resolution does not establish a subsequent connection
+  or successful authentication.
+- Collection is scoped to Windows PowerShell for this DNS rule;
+  it does not cover all applications.
+
+[Loaded DNS rule](../evidence/phase-03/51-sysmon-dns-filter-loaded.png)
+[Query and event evidence](../evidence/phase-03/52-powershell-dns-query.png)
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.

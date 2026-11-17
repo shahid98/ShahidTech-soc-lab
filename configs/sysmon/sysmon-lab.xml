@@ -5,5 +5,8 @@
     <NetworkConnect onmatch="include">
       <Image condition="end with">\powershell.exe</Image>
     </NetworkConnect>
+     <DnsQuery onmatch="include">
+      <Image condition="end with">\powershell.exe</Image>
+    </DnsQuery>
   </EventFiltering>
 </Sysmon>
