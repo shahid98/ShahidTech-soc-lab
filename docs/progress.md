@@ -2,11 +2,11 @@
 
 | Phase | Deliverable | Status |
 | --- | --- | --- |
-| 0 - Planning and virtualization | Host assessment, network design, recovery plan | In Progress |
-| 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | In Progress |
-| 2 - Workstation | Verified domain join and policy application | In Progress |
+| 0 - Planning and virtualization | Host assessment, network design, recovery plan | Complete |
+| 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | Complete |
+| 2 - Workstation | Verified domain join and policy application | Complete |
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
-| 4 - Wazuh | Centralized logs and agent connectivity | Not started |
+| 4 - Wazuh | Centralized logs and agent connectivity | In Progress |
 | 5 - SOC investigations | Evidence-backed incident reports | Not started |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
@@ -704,3 +704,31 @@ After each lesson, record date, change, verification result, evidence link, know
 - Updated the [logging guide](phase-03-windows-security-logging.md) with DC01 validation, final coverage, evidence links, and limitations.
 - DC01 transcription and controlled Sysmon network/DNS validation remain deferred and explicitly documented.
 - Phase 4 will address Wazuh ingestion, agent health, central retention, and collection monitoring.
+
+
+### Phase 4 — WAZUH01 Ubuntu baseline verified
+
+- Created Generation 2 WAZUH01 with 4 vCPUs, 8 GiB static RAM,
+  and an 80 GiB dynamically expanding virtual disk.
+- Enabled Secure Boot with MicrosoftUEFICertificateAuthority.
+- Installed Ubuntu 22.04.5 LTS; hostname wazuh01.
+- Shut down WIN11-01 during setup to free host memory.
+- Temporarily connected WAZUH01 to Default Switch for packages.
+- Installed xrdp and xorgxrdp.
+- Configured XRDP's explicit VSOCK listener and host HvSocket transport.
+- Verified XRDP was active and listening on VSOCK port 3389.
+- After a full power cycle, Enhanced Session became available.
+- Verified clipboard operation and a larger desktop display.
+- Restored Ubuntu desktop appearance using session environment settings.
+- Verified approximately 7.8 GiB RAM and 65 GiB available on root.
+- Timezone America/Toronto; NTP active and clock synchronized.
+- Temporary eth0 address: 172.31.156.243/20.
+- Permanent SOC-LAB networking and Wazuh installation remain pending.
+
+[Host resources](../evidence/phase-04/01-host-resources-before-wazuh.png)
+[VM configuration](../evidence/phase-04/02-wazuh-vm-configuration.png)
+[Basic-session limitations](../evidence/phase-04/03-ubuntu-basic-session-limitations.png)
+[XRDP packages](../evidence/phase-04/04-xrdp-packages-installed.png)
+[VSOCK listener](../evidence/phase-04/05-xrdp-vsock-listener-working.png)
+[Enhanced Session working](../evidence/phase-04/06-ubuntu-enhanced-session-working.png)
+[Ubuntu baseline](../evidence/phase-04/07-ubuntu-baseline-and-temporary-network.png)
