@@ -1,0 +1,9 @@
+<Sysmon schemaversion="4.91">
+  <HashAlgorithms>SHA256</HashAlgorithms>
+  <EventFiltering>
+    <ProcessCreate onmatch="exclude" />
+    <NetworkConnect onmatch="include">
+      <Image condition="end with">\powershell.exe</Image>
+    </NetworkConnect>
+  </EventFiltering>
+</Sysmon>

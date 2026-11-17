@@ -361,6 +361,45 @@ they do not isolate either permission layer.
 [Configuration events](../evidence/phase-03/34-defender-configuration-events.png)
 [Protection and isolation](../evidence/phase-03/35-defender-protection-and-isolation.png)
 
+### Sysmon process telemetry — verified
+
+- Enabled the built-in Sysmon optional feature on WIN11-01.
+- Installed its service using C:\LabTools\Sysmon\sysmon-lab.xml.
+- Verified Sysmon service Running and Operational channel enabled.
+- Configuration schema: 4.91; SHA256 hashing enabled.
+- ProcessCreate uses an empty exclude filter.
+- Generated a harmless cmd.exe marker command as Alex.
+- Correlated Sysmon event 1 with Security event 4688 using
+  host, timestamp, executable, command line, and process IDs.
+- Child PID: decimal 3796 = hexadecimal 0xed4.
+- Parent PID: decimal 2352 = hexadecimal 0x930.
+- Sysmon additionally supplied process GUIDs and an executable hash.
+- Network-connection collection remains disabled.
+
+[Sysmon installation](../evidence/phase-03/42-sysmon-installation.png)
+[Loaded configuration](../evidence/phase-03/43-sysmon-loaded-configuration.png)
+[Sysmon process event](../evidence/phase-03/44-sysmon-process-create.png)
+[Cross-log correlation](../evidence/phase-03/45-security-process-event-comparison.png)
+
+### Sysmon process-to-network correlation — verified
+
+- Added a NetworkConnect include rule for powershell.exe.
+- Verified the running Sysmon configuration loaded the rule.
+- Event 3 recorded Alex's PowerShell process initiating TCP traffic
+  from 10.10.10.20:49854 to DC01 at 10.10.10.10:389.
+- Correlated event 3 with process-creation event 1 using the exact
+  ProcessGuid: {3d3dad4e-cbfc-6afb-3b03-000000000a00}.
+- Process PID: 4836; parent explorer.exe, PID 6364.
+- Process integrity: Medium.
+- Event UTC timestamps place the connection about 46 seconds
+  after process creation.
+- Connection metadata does not establish LDAP authentication
+  or application-level success.
+
+[Loaded network filter](../evidence/phase-03/46-sysmon-network-filter-loaded.png)
+[Network connection](../evidence/phase-03/47-powershell-network-connection.png)
+[Process correlation](../evidence/phase-03/48-network-process-guid-correlation.png)
+
 
 ## Decisions
 
