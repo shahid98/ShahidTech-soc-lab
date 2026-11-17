@@ -449,6 +449,21 @@ they do not isolate either permission layer.
 [Zone and PTR created](../evidence/phase-03/56-reverse-zone-and-ptr-created.png)
 [Successful retest](../evidence/phase-03/57-dns-reverse-and-forward-retest.png)
 
+### Sysmon DNS coverage comparison — observed
+
+- Sysmon event 1 recorded Alex launching nslookup.exe.
+- Test command requested DC01's A record through 10.10.10.10.
+- ProcessGuid: {3d3dad4e-d889-6afb-e503-000000000a00}.
+- An exact event-22 query for that ProcessGuid returned
+  NoMatchingEventsFound.
+- This is consistent with the configured powershell.exe-only
+  DNS filter, but does not establish the filter as the sole cause.
+- Earlier PowerShell testing produced event 22 successfully.
+- Lesson: absence of telemetry does not establish absence of activity.
+
+[nslookup process](../evidence/phase-03/58-nslookup-process-created.png)
+[No matching DNS event](../evidence/phase-03/59-nslookup-dns-event-not-found.png)
+
 
 ## Decisions
 
