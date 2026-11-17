@@ -515,3 +515,28 @@ After each lesson, record date, change, verification result, evidence link, know
 - Local Security Policy confirmed audit precedence Enabled.
 - New controlled authentication-failure event validation remains pending.
 - DC01 Process Creation auditing remains unconfigured by this GPO.
+
+### Controlled authentication failure — cross-host correlation verified
+
+- Confirmed Alex was not locked out, badPwdCount was 0,
+  and no resultant fine-grained password policy was returned.
+- Domain lockout threshold was 0.
+- Performed one deliberate incorrect-password runas attempt
+  from WIN11-01 as Alex on 2026-11-17, shortly after
+  00:20:08 Eastern. The command returned error 1326.
+- WIN11-01 recorded event 4625 at 00:20:14:
+  alex.morgan, Status 0xC000006D, SubStatus 0xC000006A,
+  source ::1, authentication package Negotiate.
+- DC01 recorded event 4771 at 00:20:14:
+  alex.morgan, client ::ffff:10.10.10.20,
+  service krbtgt/SHAHIDTECH, failure code 0x18.
+- Account, timing, workstation address, and known test activity
+  support correlation across the two hosts.
+- DC01 provides explicit Kerberos failure evidence; the
+  workstation's Negotiate field alone does not identify the protocol.
+- Different source addresses reflect different observation points.
+- Authorized single-attempt test; no brute-force activity established.
+
+[Controlled attempt](../evidence/phase-03/71-dc-audit-controlled-failure-test.png)
+[DC01 Kerberos failure](../evidence/phase-03/72-dc-kerberos-preauthentication-failure.png)
+[Workstation failure](../evidence/phase-03/73-workstation-correlated-logon-failure.png)
