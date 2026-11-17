@@ -682,3 +682,19 @@ After each lesson, record date, change, verification result, evidence link, know
 - PowerShell log capacity was configured locally on DC01.
 
 [Log capacities and verified PowerShell increase](../evidence/phase-03/103-dc-powershell-log-capacity.png)
+
+### Phase 3 final coverage check — both Windows hosts verified
+
+- On 2026-11-17, queried retained events on DC01 and WIN11-01.
+- Both hosts returned Security event 4688, PowerShell Operational
+  events 4104 and 4103, and Sysmon Operational event 1.
+- Earlier controlled tests verified command-line, script-block,
+  module invocation, and Sysmon process details.
+- This check confirms retained event availability, not uninterrupted
+  collection or centralized storage.
+- DC01 transcription remains unconfigured.
+- DC01 controlled Sysmon network and DNS tests remain unverified.
+- Centralized collection and retention will be addressed in Phase 4.
+
+[DC01 coverage](../evidence/phase-03/104-dc-final-logging-coverage.png)
+[Workstation coverage](../evidence/phase-03/105-workstation-final-logging-coverage.png)
