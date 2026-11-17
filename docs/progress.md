@@ -491,3 +491,9 @@ they do not isolate either permission layer.
 ## Session log
 
 After each lesson, record date, change, verification result, evidence link, known issues, next step, and relevant snapshot/external backup. Mark completion only after verification. Record restore checks separately.
+
+### Phase 3 portfolio guide
+
+- Consolidated verified results, evidence, configuration scope, troubleshooting, and limitations in [the Phase 3 guide](phase-03-windows-security-logging.md).
+- Updated repository Sysmon XML to match the verified expanded DNS rule.
+- Phase 3 remains in progress; DC01 parity and centralized forwarding remain pending.

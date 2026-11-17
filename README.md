@@ -2,11 +2,14 @@
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: Planning. No infrastructure or security outcomes verified yet.**
+**Status: In progress. Active Directory, workstation domain access, and local security telemetry have been verified in the lab. Wazuh and centralized collection remain pending.**
 
 ## Start here
 
 - [Progress and roadmap](docs/progress.md)
+- [Windows security logging guide and evidence](docs/phase-03-windows-security-logging.md)
+- [Case 001: controlled failed logon](investigations/001-controlled-failed-logon.md)
+- [Case 002: Defender detection and quarantine](investigations/002-defender-eicar-test.md)
 - [Planned architecture](docs/architecture.md)
 - [Git workflow](docs/git-workflow.md)
 - [Lesson template](templates/lesson.md)
@@ -21,3 +24,4 @@ Every exercise should explain: objective, implementation, verification, evidence
 ## Scope
 
 Testing is limited to owned, authorized lab systems on an isolated network. Publish sanitized evidence only. Store VM files and external backups outside Git. Snapshots do not replace backups.
+
