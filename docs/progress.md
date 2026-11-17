@@ -564,3 +564,17 @@ After each lesson, record date, change, verification result, evidence link, know
 [SID and disabled state](../evidence/phase-03/78-audit-account-sid-and-disabled-state.png)
 [Verified change](../evidence/phase-03/79-audit-account-displayname-change.png)
 [Change event](../evidence/phase-03/80-audit-account-change-event-4738.png)
+
+### Disposable audit account — cleanup verified
+
+- DC01 event 4726 recorded deletion of audit.test at
+  2026-11-17 00:57:13 Eastern.
+- Acting account: SHAHIDTECH\Administrator.
+- Queried DC01 afterward; no active audit.test account returned.
+- Verified alex.morgan remains enabled.
+- Lifecycle evidence: 4720 creation, 4738 display-name change,
+  and 4726 deletion.
+- Cleanup complete; earlier cleanup-pending note is superseded.
+
+[Deletion event](../evidence/phase-03/81-audit-account-deletion-event-4726.png)
+[Directory-state verification](../evidence/phase-03/82-audit-account-cleanup-verified.png)
