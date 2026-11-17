@@ -1,8 +1,8 @@
-﻿# ShahidTech Enterprise SOC Lab
+# ShahidTech Enterprise SOC Lab
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: In progress. Active Directory, workstation domain access, and local security telemetry have been verified in the lab. Wazuh and centralized collection remain pending.**
+**Status: In progress. Active Directory, workstation domain access, and local security telemetry on both DC01 and WIN11-01 have been verified in the lab. Phase 3 local logging baseline is complete. Wazuh and centralized collection remain pending.**
 
 ## Start here
 
@@ -24,4 +24,3 @@ Every exercise should explain: objective, implementation, verification, evidence
 ## Scope
 
 Testing is limited to owned, authorized lab systems on an isolated network. Publish sanitized evidence only. Store VM files and external backups outside Git. Snapshots do not replace backups.
-

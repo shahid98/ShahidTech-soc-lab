@@ -1,6 +1,6 @@
-﻿# Phase 3: Windows security telemetry
+# Phase 3: Windows security telemetry
 
-Status: In progress. Endpoint exercises verified on WIN11-01; equivalent DC01 coverage and centralized collection remain pending.
+Status: Phase 3 local telemetry baseline complete. Required process and PowerShell events verified on DC01 and WIN11-01. Centralized collection remains Phase 4 work; limitations are documented below.
 
 ## Purpose and environment
 
@@ -40,7 +40,7 @@ A separate harmless file-write exercise confirmed the [actual file contents in N
 
 ## Sysmon configuration and correlation
 
-The built-in Windows Sysmon optional feature was enabled, then its service installed with C:\LabTools\Sysmon\sysmon-lab.xml. The running configuration was inspected using sysmon.exe -c. Schema 4.91 is independent of the executable version.
+On WIN11-01, the built-in Windows Sysmon optional feature was enabled, then its service installed with C:\LabTools\Sysmon\sysmon-lab.xml. The running configuration was inspected using sysmon.exe -c. Schema 4.91 is independent of the executable version.
 
 Current explicit rules:
 
@@ -80,14 +80,45 @@ Raw logs and transcripts stay outside Git. Screenshots are reviewed examples, no
 
 ## Remaining work
 
-- Verify equivalent required telemetry on DC01; do not extrapolate workstation settings to the domain controller.
+- DC01 transcription is intentionally deferred until a protected collection destination is designed. Controlled DC01 Sysmon network and DNS tests remain unverified; configuration alone does not establish capture.
 - Build and validate Wazuh forwarding, agent health, and ingestion for each source.
 - Define central retention, access control, integrity protection, and collection-failure monitoring.
 - Expand and test telemetry according to investigation needs, recording volume and coverage tradeoffs.
 - Keep the nslookup visibility limitation explicit until additional evidence establishes its cause.
 
+## DC01 baseline and final coverage review
+
+ShahidTech-DomainController-Auditing is linked to the Domain Controllers OU, enabled and not enforced. Verified settings include advanced-audit precedence; Kerberos Authentication Service, Kerberos Service Ticket Operations, Credential Validation, User Account Management, and Security Group Management auditing for Success and Failure; Process Creation Success; command-line inclusion; PowerShell Script Block Logging; and Module Logging for *.
+
+A controlled failed runas attempt produced workstation 4625 and DC01 4771 at 2026-11-17 00:20:14 Eastern. Account, time, and workstation address support correlation. The DC event provides explicit Kerberos pre-authentication failure evidence; Negotiate alone does not identify the selected protocol.
+
+Disposable account audit.test produced creation 4720, display-name change 4738, and deletion 4726. Disposable global group GG-Audit-Validation produced membership addition 4728, removal 4729, and deletion 4730. Directory checks verified cleanup and Alex's retained employee membership. SIDs distinguish object identities; actor account names alone do not prove human identity or authorization.
+
+DC01 uses standalone Sysinternals Sysmon v15.22, with a verified Microsoft signature, running Sysmon64 service, and schema 4.91 lab configuration. Controlled event 1 captured the cmd.exe marker, command line, SHA256 hash, user, and PowerShell parent. This differs from the built-in Sysmon packaging used on WIN11-01.
+
+| Final retained-event check | DC01 | WIN11-01 |
+| --- | --- | --- |
+| Security 4688 | Found | Found |
+| PowerShell 4104 | Found | Found |
+| PowerShell 4103 | Found | Found |
+| Sysmon 1 | Found | Found |
+
+DC01 log capacities are Security 128 MiB, PowerShell Operational 64 MiB, and Sysmon Operational 64 MiB, all Circular. PowerShell capacity was changed locally. These buffers do not guarantee a retention duration. The final query establishes retained-event availability, not uninterrupted collection or remote preservation.
+
+- [DC01 Kerberos failure](../evidence/phase-03/72-dc-kerberos-preauthentication-failure.png)
+- [Account deletion](../evidence/phase-03/81-audit-account-deletion-event-4726.png)
+- [Group deletion](../evidence/phase-03/91-global-audit-group-deleted-event-4730.png)
+- [DC01 command-line event](../evidence/phase-03/95-dc-process-commandline-event-4688.png)
+- [DC01 script-block event](../evidence/phase-03/97-dc-scriptblock-event-4104.png)
+- [DC01 module event](../evidence/phase-03/99-dc-module-logging-event-4103.png)
+- [DC01 Sysmon configuration](../evidence/phase-03/101-dc-sysmon-installed-and-configured.png)
+- [DC01 Sysmon process event](../evidence/phase-03/102-dc-sysmon-process-event-1.png)
+- [DC01 log capacity](../evidence/phase-03/103-dc-powershell-log-capacity.png)
+- [DC01 final coverage](../evidence/phase-03/104-dc-final-logging-coverage.png)
+- [WIN11-01 final coverage](../evidence/phase-03/105-workstation-final-logging-coverage.png)
+
 ## Interview explanation
 
-I configured workstation auditing through Group Policy and validated it using generated events, not just policy reports. I investigated a controlled failed logon and a harmless Defender test, then correlated Security and Sysmon process records and linked a network connection to its process GUID. I also diagnosed time-zone, DNS, and log-capacity issues. Central SIEM collection and broader server coverage are the next steps; current evidence is local endpoint validation.
+I configured workstation auditing through Group Policy and validated it using generated events, not just policy reports. I investigated a controlled failed logon and a harmless Defender test, then correlated Security and Sysmon process records and linked a network connection to its process GUID. I also diagnosed time-zone, DNS, and log-capacity issues. I extended process and PowerShell auditing to DC01 and verified retained 4688, 4104, 4103, and Sysmon 1 events on both hosts. Central SIEM collection is the next step; current evidence is local endpoint validation.
 
 For the complete chronological record, see the [progress tracker](progress.md). Historical checkpoints describe the state at their time; later entries supersede earlier pending items.

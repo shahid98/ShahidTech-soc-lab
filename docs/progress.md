@@ -1,11 +1,11 @@
-﻿# Progress tracker
+# Progress tracker
 
 | Phase | Deliverable | Status |
 | --- | --- | --- |
 | 0 - Planning and virtualization | Host assessment, network design, recovery plan | In Progress |
 | 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | In Progress |
 | 2 - Workstation | Verified domain join and policy application | In Progress |
-| 3 - Security logging | Windows, Sysmon, PowerShell telemetry | In Progress |
+| 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
 | 4 - Wazuh | Centralized logs and agent connectivity | Not started |
 | 5 - SOC investigations | Evidence-backed incident reports | Not started |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
@@ -698,3 +698,9 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [DC01 coverage](../evidence/phase-03/104-dc-final-logging-coverage.png)
 [Workstation coverage](../evidence/phase-03/105-workstation-final-logging-coverage.png)
+### Phase 3 documentation wrap-up
+
+- Completed the local logging baseline on DC01 and WIN11-01.
+- Updated the [logging guide](phase-03-windows-security-logging.md) with DC01 validation, final coverage, evidence links, and limitations.
+- DC01 transcription and controlled Sysmon network/DNS validation remain deferred and explicitly documented.
+- Phase 4 will address Wazuh ingestion, agent health, central retention, and collection monitoring.
