@@ -497,3 +497,21 @@ After each lesson, record date, change, verification result, evidence link, know
 - Consolidated verified results, evidence, configuration scope, troubleshooting, and limitations in [the Phase 3 guide](phase-03-windows-security-logging.md).
 - Updated repository Sysmon XML to match the verified expanded DNS rule.
 - Phase 3 remains in progress; DC01 parity and centralized forwarding remain pending.
+
+### DC01 authentication auditing — centrally configured and verified
+
+- Recorded initial DC01 authentication auditing: Success only.
+- Created ShahidTech-DomainController-Auditing.
+- Enabled advanced audit subcategory precedence.
+- Configured Success and Failure for:
+  - Kerberos Authentication Service
+  - Kerberos Service Ticket Operations
+  - Credential Validation
+- Linked the GPO to Domain Controllers; enabled, not enforced.
+- Retained Default Domain Controllers Policy.
+- Refreshed DC01 computer policy.
+- gpresult confirmed the new GPO applied.
+- auditpol confirmed all three subcategories: Success and Failure.
+- Local Security Policy confirmed audit precedence Enabled.
+- New controlled authentication-failure event validation remains pending.
+- DC01 Process Creation auditing remains unconfigured by this GPO.
