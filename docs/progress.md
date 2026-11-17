@@ -341,7 +341,25 @@ they do not isolate either permission layer.
 [Verified Defender signature status](../evidence/phase-03/31-defender-signature-status.png)
 [Lab network restored](../evidence/phase-03/32-lab-network-restored.png)
 
+### Defender operational telemetry — baseline verified
 
+- Defender Operational channel enabled, with a 16 MiB limit
+  and Circular retention.
+- Inspected five recent events; all were configuration-change
+  event 5007, not malware detections.
+- Observed initialization, service-state, notification-related,
+  and MAPS failure timestamp changes.
+- Current Defender service, antivirus, and real-time protection
+  status all verified True.
+- WIN11-01 remains at 10.10.10.20, DNS 10.10.10.10,
+  with no default gateway.
+- Isolation is a plausible explanation for cloud-connectivity
+  failures; their exact cause remains unconfirmed.
+- Information-level severity alone does not establish benign activity.
+
+[Channel configuration](../evidence/phase-03/33-defender-channel-status.png)
+[Configuration events](../evidence/phase-03/34-defender-configuration-events.png)
+[Protection and isolation](../evidence/phase-03/35-defender-protection-and-isolation.png)
 
 
 ## Decisions
