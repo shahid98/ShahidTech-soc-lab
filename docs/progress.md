@@ -321,6 +321,29 @@ they do not isolate either permission layer.
 [Observed Security history](../evidence/phase-03/28-security-log-observed-timespan.png)
 [PowerShell log capacity](../evidence/phase-03/29-powershell-log-capacity.png)
 
+### Defender intelligence refresh and network restoration — verified
+
+- Defender antivirus and real-time protection were enabled.
+- Initial signature timestamp: 2025-09-16.
+- Temporarily connected WIN11-01 to Default Switch with DHCP
+  and automatic DNS for updates.
+- Update-MpSignature returned RPC error 0x800706be, recorded in
+  the session's pasted command output; no error screenshot was captured.
+- Subsequent status showed signature version 1.463.334.0,
+  updated 2026-11-16, signature age 0, and real-time protection enabled.
+- Fresh signatures were verified; the exact update mechanism
+  responsible was not established.
+- Reconnected WIN11-01 to SOC-LAB and restored:
+  10.10.10.20/24, DNS 10.10.10.10, no default gateway.
+- Network profile recognized ad.shahidtech.test.
+
+[Initial Defender status](../evidence/phase-03/30-defender-status-before.png)
+[Verified Defender signature status](../evidence/phase-03/31-defender-signature-status.png)
+[Lab network restored](../evidence/phase-03/32-lab-network-restored.png)
+
+
+
+
 ## Decisions
 
 2026-11-14: Repository name: shahidtech-soc-lab. Documentation scaffold only; Git initialized.
