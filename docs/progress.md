@@ -755,3 +755,22 @@ After each lesson, record date, change, verification result, evidence link, know
 [Lab networking](../evidence/phase-04/10-wazuh-lab-network-configured.png)
 [Dashboard first login](../evidence/phase-04/11-wazuh-dashboard-first-login.png)
 [Services active](../evidence/phase-04/12-wazuh-services-active.png)
+
+### DC01 Wazuh agent — enrollment verified
+
+- Verified DC01 could reach WAZUH01 on TCP 1514 and 1515.
+- Downloaded agent 4.14.10-1 on the host and transferred it to DC01.
+- Verified the MSI signature was Valid and signed by Wazuh, Inc.
+- Installed with manager address 10.10.10.30 and agent name DC01.
+- Installer log reported MainEngineThread returning 0.
+- Verified WazuhSvc was Running.
+- Dashboard showed DC01 as Active: agent ID 001,
+  IP 10.10.10.10, version 4.14.10, group default.
+- Enrollment and agent connectivity are verified.
+- Collection and indexing of specific Windows event channels
+  remain to be validated.
+
+[Manager-port connectivity](../evidence/phase-04/14-dc-wazuh-port-connectivity.png)
+[Installer signature](../evidence/phase-04/15-dc-wazuh-agent-signature.png)
+[Installed service](../evidence/phase-04/16-dc-wazuh-agent-installed-running.png)
+[Agent active in dashboard](../evidence/phase-04/17-dc-wazuh-agent-active.png)
