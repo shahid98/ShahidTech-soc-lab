@@ -649,3 +649,21 @@ After each lesson, record date, change, verification result, evidence link, know
 [Script-block event — 4104](../evidence/phase-03/97-dc-scriptblock-event-4104.png)
 [Effective module logging](../evidence/phase-03/98-dc-module-logging-applied.png)
 [Module invocation event — 4103](../evidence/phase-03/99-dc-module-logging-event-4103.png)
+
+### DC01 Sysmon — installation and process telemetry verified
+
+- Verified the standalone Sysmon64.exe Microsoft signature was Valid.
+- Installed Sysinternals Sysmon v15.22 using
+  C:\LabTools\Sysmon\sysmon-lab.xml, schema 4.91.
+- Verified Sysmon64 was Running and its Operational log was enabled.
+- Verified loaded rules for process creation, PowerShell network
+  connections, and DNS queries, with SHA256 hashing.
+- Event 1 captured the controlled cmd.exe test at
+  2026-11-17 01:59:01 Eastern.
+- The event included the test command line, Administrator user,
+  High integrity, SHA256 hash, and PowerShell parent information.
+- Controlled network and DNS tests on DC01 remain unverified.
+
+[Executable signature](../evidence/phase-03/100-dc-sysmon-signature-valid.png)
+[Installation and loaded configuration](../evidence/phase-03/101-dc-sysmon-installed-and-configured.png)
+[Process creation event — 1](../evidence/phase-03/102-dc-sysmon-process-event-1.png)
