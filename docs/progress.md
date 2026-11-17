@@ -608,3 +608,22 @@ After each lesson, record date, change, verification result, evidence link, know
 [Empty group verified](../evidence/phase-03/89-audit-group-membership-empty.png)
 [Alex membership restored](../evidence/phase-03/90-alex-membership-restored.png)
 [Group deletion event — 4730](../evidence/phase-03/91-global-audit-group-deleted-event-4730.png)
+
+### DC01 process-creation auditing — command-line capture verified
+
+- Configured Audit Process Creation: Success in
+  ShahidTech-DomainController-Auditing.
+- Refreshed policy and verified the effective setting with auditpol.
+- Enabled Include command line in process creation events.
+- Verified ProcessCreationIncludeCmdLine_Enabled was 1 on DC01.
+- Launched a controlled cmd.exe echo test from PowerShell.
+- DC01 recorded event 4688 at 2026-11-17 01:34:25 Eastern.
+- The event included PowerShell as the creator process and
+  the command line containing ShahidTech-DC01-4688-Test.
+- The console displayed the expected test output.
+- Process creation telemetry and command-line capture are verified.
+
+[Audit setting](../evidence/phase-03/92-dc-process-creation-audit-setting.png)
+[Effective auditing](../evidence/phase-03/93-dc-process-creation-audit-applied.png)
+[Command-line policy and registry](../evidence/phase-03/94-dc-process-commandline-enabled.png)
+[Test process event](../evidence/phase-03/95-dc-process-commandline-event-4688.png)
