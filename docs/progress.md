@@ -914,3 +914,16 @@ After each lesson, record date, change, verification result, evidence link, know
   reconnect for WIN11-01.
 
 [Indexed Sysmon event after reconnect](../evidence/phase-04/54-win11-sysmon-delivery-after-reconnect.png)
+
+### WAZUH01 — private network operation verified
+
+- Disconnected the temporary Default Switch adapter. At 2026-11-18
+  00:51:11 Eastern, `eth1` held `10.10.10.30/24` and the IPv4 routing
+  table showed only the connected `10.10.10.0/24` route, with no default route.
+- `agent_control -l` reported DC01 (`001`) and WIN11-01 (`002`) as Active.
+- From DC01, the Wazuh dashboard at `https://10.10.10.30` loaded and
+  displayed both agents as active. The browser displayed a certificate
+  warning, so this check verifies dashboard reachability and agent status.
+
+[Private IPv4 route and agent health](../evidence/phase-04/55-wazuh-private-network-and-agent-health.png)
+[Dashboard from DC01 after isolation](../evidence/phase-04/56-wazuh-dashboard-from-dc01-after-isolation.png)
