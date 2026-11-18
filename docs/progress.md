@@ -887,6 +887,18 @@ After each lesson, record date, change, verification result, evidence link, know
   and `agents_disconnection_alert_time` to `0`. The expected behavior
   is to classify the agent as disconnected after 15 minutes without a
   keepalive and generate an alert without an additional configured delay.
-- Disconnect alert delivery and reconnection still need a live check.
-
 [Agent connection status and disconnect settings](../evidence/phase-04/50-wazuh-agent-health-baseline.png)
+
+### WIN11-01 — disconnect alert and reconnection verified
+
+- In a controlled VM shutdown test on 2026-11-18, WAZUH01 reported
+  WIN11-01 (`002`) as Disconnected.
+- Threat Hunting showed the indexed alert `Wazuh agent disconnected.`
+  for WIN11-01 at about 00:16 on the dashboard clock (rule `504`, level 3).
+- After the VM restarted, WAZUH01 reported the same agent as Active with
+  a newer keepalive. This verifies reconnection. Per-channel event
+  delivery after restart was outside this test.
+
+[Disconnected agent status](../evidence/phase-04/51-win11-wazuh-agent-disconnected.png)
+[Indexed disconnect alert](../evidence/phase-04/52-win11-wazuh-disconnect-alert.png)
+[Agent active after restart](../evidence/phase-04/53-win11-wazuh-agent-reconnected.png)
