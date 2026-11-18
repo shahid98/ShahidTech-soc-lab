@@ -856,3 +856,12 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [Central Defender detection, event 1116](../evidence/phase-04/45-win11-defender-detection-central.png)
 [Central Defender quarantine, event 1117](../evidence/phase-04/46-win11-defender-quarantine-central.png)
+
+### Wazuh alert index retention baseline
+
+- The ISM explain query for `wazuh-alerts-*` returned `total_managed_indices: 0`.
+- The `2026.11.17` and `2026.11.18` alert indices each returned a null policy ID.
+  No ISM-based deletion age was configured for either index at the time of the check.
+- A retention target and policy still need to be defined for the lab.
+
+[Alert index retention baseline](../evidence/phase-04/47-wazuh-alert-index-retention-check.png)
