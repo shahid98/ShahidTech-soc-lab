@@ -878,3 +878,15 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [Alert index sizes](../evidence/phase-04/48-wazuh-alert-index-sizes.png)
 [Indexer filesystem capacity](../evidence/phase-04/49-wazuh-indexer-disk-capacity.png)
+
+### Wazuh agent health baseline
+
+- At 2026-11-17 23:52:32 Eastern, WAZUH01 reported DC01 (`001`) and
+  WIN11-01 (`002`) as Active.
+- The manager configuration set `agents_disconnection_time` to `15m`
+  and `agents_disconnection_alert_time` to `0`. The expected behavior
+  is to classify the agent as disconnected after 15 minutes without a
+  keepalive and generate an alert without an additional configured delay.
+- Disconnect alert delivery and reconnection still need a live check.
+
+[Agent connection status and disconnect settings](../evidence/phase-04/50-wazuh-agent-health-baseline.png)
