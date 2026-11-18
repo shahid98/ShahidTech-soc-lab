@@ -774,3 +774,23 @@ After each lesson, record date, change, verification result, evidence link, know
 [Installer signature](../evidence/phase-04/15-dc-wazuh-agent-signature.png)
 [Installed service](../evidence/phase-04/16-dc-wazuh-agent-installed-running.png)
 [Agent active in dashboard](../evidence/phase-04/17-dc-wazuh-agent-active.png)
+
+### DC01 — central telemetry delivery verified
+
+- Wazuh agent 001 (DC01) connected to WAZUH01.
+- Agent startup logs confirmed PowerShell and Sysmon channel monitoring.
+- Correlated a local Sysmon event 1 with Wazuh rule 92004 using
+  the test command line, ProcessGuid, PID, and source UTC timestamp.
+- Temporarily enabled JSON archiving to investigate missing
+  PowerShell events in the dashboard.
+- Confirmed central receipt of marker events: 4104 record 1855,
+  and 4103 records 1856 and 1857.
+- Archive receipt confirmed that these test events reached the manager;
+  dashboard alert visibility is a separate check.
+- Exact rule outcomes for the PowerShell marker remain unverified.
+- Disabled temporary JSON archiving after verification; manager active.
+
+[Channel monitoring](../evidence/phase-04/20-dc-agent-channel-subscriptions.png)
+[Sysmon correlation](../evidence/phase-04/26-dc-sysmon-central-correlation.png)
+[PowerShell archive receipt](../evidence/phase-04/29-dc-powershell-archive-receipt-confirmed.png)
+[Archive-test cleanup](../evidence/phase-04/30-wazuh-archive-test-cleanup.png)
