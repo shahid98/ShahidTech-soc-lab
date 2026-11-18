@@ -865,3 +865,16 @@ After each lesson, record date, change, verification result, evidence link, know
 - A retention target and policy still need to be defined for the lab.
 
 [Alert index retention baseline](../evidence/phase-04/47-wazuh-alert-index-retention-check.png)
+
+### Wazuh alert index storage baseline
+
+- The November 17 alert index showed 1,154 documents and 2 MiB of storage.
+  The November 18 index showed 1,623 documents and 6 MiB. Primary and total
+  storage matched at the precision displayed by the query.
+- The filesystem holding `/var/lib/wazuh-indexer` had 46 GiB available
+  and was 39% used (`df -h` on WAZUH01).
+- These measurements are a point-in-time baseline. Representative full-day
+  measurements are still needed to estimate daily growth.
+
+[Alert index sizes](../evidence/phase-04/48-wazuh-alert-index-sizes.png)
+[Indexer filesystem capacity](../evidence/phase-04/49-wazuh-indexer-disk-capacity.png)
