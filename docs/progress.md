@@ -805,8 +805,8 @@ After each lesson, record date, change, verification result, evidence link, know
 - Generated the harmless marker ShahidTech-WIN11-Wazuh-Ingest-Test.
 - Verified the marker in local Sysmon event 1 and in Wazuh
   under WIN11-01, agent ID 002, IP 10.10.10.20.
-- This validates Sysmon delivery; individual PowerShell and
-  Defender event delivery still require verification.
+- The PowerShell validation is documented below. Defender event delivery
+  still requires verification.
 [Manager port connectivity](../evidence/phase-04/31-win11-wazuh-port-connectivity.png)
 [Installer signature verification](../evidence/phase-04/32-win11-wazuh-agent-signature.png)
 [Agent service running](../evidence/phase-04/33-win11-wazuh-agent-installed-running.png)
@@ -815,3 +815,24 @@ After each lesson, record date, change, verification result, evidence link, know
 [Channel subscriptions](../evidence/phase-04/36-win11-agent-channel-subscriptions.png)
 [Central Sysmon marker](../evidence/phase-04/37-win11-sysmon-central-ingest-marker.png)
 [Local Sysmon marker](../evidence/phase-04/38-win11-local-sysmon-ingest-marker.png)
+
+### WIN11-01 — PowerShell 4103 receipt observed
+
+- PowerShell Operational event 4103 at 2026-11-17 20:15:49 Eastern
+  recorded `Write-Output` with input `ShahidTech-WIN11-PowerShell-Ingest-Test`
+  under `SHAHIDTECH\alex.morgan` in Windows PowerShell.
+- A fresh run reused the marker. The Wazuh manager JSON archive captured
+  WIN11-01 event 4103 records 10954 and 10956 at 2026-11-18 04:15:29 UTC
+  (2026-11-17 23:15:29 Eastern). This confirms manager receipt for the
+  fresh run. The dashboard search around the earlier run returned no alerts.
+- Event 4104 for this marker remains unverified.
+- Both archive records matched local event 4103 by record ID and exact
+  XML source timestamp: 10954 at `2026-11-18T04:15:29.6633924Z` and 10956
+  at `2026-11-18T04:15:29.6635576Z`.
+- After the test, the manager configuration showed `logall_json=no`
+  and `systemctl is-active wazuh-manager` returned `active`.
+
+[Local PowerShell event 4103](../evidence/phase-04/39-win11-local-powershell-ingest-marker.png)
+[Wazuh manager archive receipt](../evidence/phase-04/40-win11-powershell-archive-receipt.png)
+[Matching fresh local PowerShell records](../evidence/phase-04/41-win11-local-powershell-archive-marker.png)
+[JSON archive cleanup and manager status](../evidence/phase-04/42-wazuh-archive-test-cleanup.png)

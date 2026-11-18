@@ -2,7 +2,7 @@
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: In progress. Active Directory, workstation domain access, and local security telemetry on both DC01 and WIN11-01 have been verified in the lab. Phase 3 local logging baseline is complete. Wazuh and centralized collection remain pending.**
+**Status: Phase 4 in progress. Wazuh receives Sysmon events from DC01 and WIN11-01. PowerShell receipt has been observed for both hosts in the manager archive. WIN11-01 Defender central verification remains pending.**
 
 ## Start here
 
