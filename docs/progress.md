@@ -842,7 +842,17 @@ After each lesson, record date, change, verification result, evidence link, know
 - Defender Real-Time Protection detected `Virus:DOS/EICAR_Test_File`
   in `ShahidTech-EICAR-Wazuh-Test.txt` under `SHAHIDTECH\alex.morgan`.
 - Event 1117 recorded successful quarantine under `NT AUTHORITY\SYSTEM`
-  with error code `0x00000000`. Central Defender delivery remains pending.
+  with error code `0x00000000`.
 
 [Local Defender detection, event 1116](../evidence/phase-04/43-win11-local-defender-eicar-events.png)
 [Local Defender quarantine, event 1117](../evidence/phase-04/44-win11-local-defender-eicar-events-quarentine.png)
+
+### WIN11-01 — Defender alerts verified in Wazuh
+
+- In Wazuh Threat Hunting, matched event 1116 (detection) and event 1117
+  (quarantine) for `ShahidTech-EICAR-Wazuh-Test.txt` to the corresponding
+  local events on WIN11-01 (agent 002).
+- Both events were received and indexed as alerts for this test.
+
+[Central Defender detection, event 1116](../evidence/phase-04/45-win11-defender-detection-central.png)
+[Central Defender quarantine, event 1117](../evidence/phase-04/46-win11-defender-quarantine-central.png)
