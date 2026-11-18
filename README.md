@@ -2,7 +2,7 @@
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: Phase 4 complete. Wazuh receives Sysmon and PowerShell events from DC01 and WIN11-01. WIN11-01 Defender alerts and agent disconnect monitoring were verified, and a 30-day indexed alert retention policy is configured. Phase 5 covers SOC investigations.**
+**Status: Phase 5 complete. Wazuh centralizes Windows telemetry from DC01 and WIN11-01. The portfolio includes evidence-backed Defender and domain-authentication investigations. Phase 6 covers detection engineering.**
 
 ## Start here
 

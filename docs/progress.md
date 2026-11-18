@@ -7,7 +7,7 @@
 | 2 - Workstation | Verified domain join and policy application | Complete |
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
-| 5 - SOC investigations | Evidence-backed incident reports | In progress |
+| 5 - SOC investigations | Evidence-backed incident reports | Complete |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
@@ -978,3 +978,13 @@ After each lesson, record date, change, verification result, evidence link, know
   outcome, and source time. Both DC01 screenshots are linked in Case 004.
 - Matched DC01 record `49719` to Wazuh rule `60104` (level 5). The targeted
   alert search for record `49720` returned no results in the checked range.
+
+### Phase 5 closeout — investigations complete
+
+- [Case 003](../investigations/003-defender-wazuh-correlation.md) traces
+  Defender detection and quarantine from WIN11-01 to indexed Wazuh alerts.
+- [Case 004](../investigations/004-failed-logon-wazuh-correlation.md) traces
+  a failed domain logon and subsequent success across WIN11-01, DC01,
+  and Wazuh. The successful DC01 TGT request is supported by endpoint evidence.
+- Both reports document the evidence, disposition, and limits of the
+  authorized exercises. Phase 6 will build and validate detection rules.
