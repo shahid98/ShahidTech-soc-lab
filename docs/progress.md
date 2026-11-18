@@ -862,7 +862,7 @@ After each lesson, record date, change, verification result, evidence link, know
 - The ISM explain query for `wazuh-alerts-*` returned `total_managed_indices: 0`.
 - The `2026.11.17` and `2026.11.18` alert indices each returned a null policy ID.
   No ISM-based deletion age was configured for either index at the time of the check.
-- A retention target and policy still need to be defined for the lab.
+- This was the baseline before the 30-day policy was applied.
 
 [Alert index retention baseline](../evidence/phase-04/47-wazuh-alert-index-retention-check.png)
 
@@ -927,3 +927,18 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [Private IPv4 route and agent health](../evidence/phase-04/55-wazuh-private-network-and-agent-health.png)
 [Dashboard from DC01 after isolation](../evidence/phase-04/56-wazuh-dashboard-from-dc01-after-isolation.png)
+
+### Wazuh — 30-day indexed alert retention configured
+
+- Created `wazuh-alerts-30d-retention` with an ISM template for
+  `wazuh-alerts-4.x-*` at priority `100`. The policy transitions from
+  `retain` to `delete` at a minimum index age of `30d` and deletes the
+  index when ISM executes the delete action.
+- The lab operator confirmed the policy was attached to both existing alert
+  indices, dated November 17 and 18. The assignment screenshot shows the
+  November 17 index.
+- The policy covers indexed alerts. Manager log files have a separate
+  lifecycle. Automatic deletion has yet to be observed.
+
+[Policy assignment on the November 17 alert index](../evidence/phase-04/57-wazuh-alert-retention-policy-applied.png)
+[Policy settings in the visual editor](../evidence/phase-04/58-wazuh-alert-retention-policy-settings.png)
