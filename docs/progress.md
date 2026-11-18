@@ -6,7 +6,7 @@
 | 1 - Windows Server and AD | Working domain, DNS, users, groups, GPO | Complete |
 | 2 - Workstation | Verified domain join and policy application | Complete |
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
-| 4 - Wazuh | Centralized logs and agent connectivity | In Progress |
+| 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
 | 5 - SOC investigations | Evidence-backed incident reports | Not started |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
@@ -942,3 +942,18 @@ After each lesson, record date, change, verification result, evidence link, know
 
 [Policy assignment on the November 17 alert index](../evidence/phase-04/57-wazuh-alert-retention-policy-applied.png)
 [Policy settings in the visual editor](../evidence/phase-04/58-wazuh-alert-retention-policy-settings.png)
+
+### Phase 4 closeout — centralized monitoring baseline complete
+
+- WAZUH01 operates on SOC-LAB with both Windows agents active and the
+  dashboard reachable from DC01 after the temporary adapter was disconnected.
+- Indexed Sysmon process creation alerts were verified for both hosts.
+  PowerShell receipt was verified in the manager JSON archive for both hosts,
+  and WIN11-01 Defender detection and quarantine were verified as indexed alerts.
+- A controlled WIN11-01 outage produced disconnect alert `504`. After
+  reconnection, a fresh Sysmon marker confirmed process telemetry resumed.
+- The 30-day ISM policy is configured for indexed alerts. Age-based deletion,
+  representative daily storage growth, and per-channel collection-failure
+  alerting remain unverified. The DC01 browser displayed a dashboard
+  certificate warning during the private-network check.
+- Phase 5 will use this baseline for evidence-backed SOC investigations.
