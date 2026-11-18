@@ -794,3 +794,24 @@ After each lesson, record date, change, verification result, evidence link, know
 [Sysmon correlation](../evidence/phase-04/26-dc-sysmon-central-correlation.png)
 [PowerShell archive receipt](../evidence/phase-04/29-dc-powershell-archive-receipt-confirmed.png)
 [Archive-test cleanup](../evidence/phase-04/30-wazuh-archive-test-cleanup.png)
+
+### WIN11-01 — Wazuh enrollment and Sysmon delivery verified
+
+- Corrected the enrollment destination from DC01's DNS address
+  (10.10.10.10) to WAZUH01 (10.10.10.30).
+- Agent log confirmed connection to 10.10.10.30 over TCP 1514.
+- Configured collection of PowerShell, Sysmon, and Defender
+  Operational channels alongside the existing default channels.
+- Generated the harmless marker ShahidTech-WIN11-Wazuh-Ingest-Test.
+- Verified the marker in local Sysmon event 1 and in Wazuh
+  under WIN11-01, agent ID 002, IP 10.10.10.20.
+- This validates Sysmon delivery; individual PowerShell and
+  Defender event delivery still require verification.
+[Manager port connectivity](../evidence/phase-04/31-win11-wazuh-port-connectivity.png)
+[Installer signature verification](../evidence/phase-04/32-win11-wazuh-agent-signature.png)
+[Agent service running](../evidence/phase-04/33-win11-wazuh-agent-installed-running.png)
+[Agent active in Wazuh](../evidence/phase-04/34-win11-wazuh-agent-active.png)
+[Additional event channels configured](../evidence/phase-04/35-win11-agent-extra-channels-configured.png)
+[Channel subscriptions](../evidence/phase-04/36-win11-agent-channel-subscriptions.png)
+[Central Sysmon marker](../evidence/phase-04/37-win11-sysmon-central-ingest-marker.png)
+[Local Sysmon marker](../evidence/phase-04/38-win11-local-sysmon-ingest-marker.png)
