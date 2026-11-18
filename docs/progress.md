@@ -902,3 +902,15 @@ After each lesson, record date, change, verification result, evidence link, know
 [Disconnected agent status](../evidence/phase-04/51-win11-wazuh-agent-disconnected.png)
 [Indexed disconnect alert](../evidence/phase-04/52-win11-wazuh-disconnect-alert.png)
 [Agent active after restart](../evidence/phase-04/53-win11-wazuh-agent-reconnected.png)
+
+### WIN11-01 — Sysmon delivery verified after reconnect
+
+- After agent `002` reconnected, Alex generated the marker
+  `ShahidTech-WIN11-Reconnect-20261118-002725` by launching `cmd.exe`
+  from Windows PowerShell.
+- Wazuh indexed Sysmon event `1`, record `6481`, with source timestamp
+  `2026-11-18T05:27:27.4078849Z`. Rule `92004` fired at level `4`.
+- This verifies that Sysmon process creation telemetry resumed after
+  reconnect for WIN11-01.
+
+[Indexed Sysmon event after reconnect](../evidence/phase-04/54-win11-sysmon-delivery-after-reconnect.png)
