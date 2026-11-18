@@ -42,8 +42,24 @@ under rule `60118` (level 3).
   logon ID `0xc7b00`, caller PID `0x2494`, and logon process `seclogo`.
   The success created logon session `0x7fff83`. The shared context supports
   a retry, but the events alone do not establish why the success occurred.
-- Domain-controller correlation was outside the exercise. No brute-force
-  technique was assigned.
+- No brute-force technique was assigned.
+
+## Domain-controller correlation
+
+A Security log query on DC01 for `alex.morgan` returned two Kerberos
+events in the investigation window. Both identify WIN11-01 by the client
+address `::ffff:10.10.10.20` (IPv4 address `10.10.10.20`).
+
+| DC01 event | Source time (UTC) | Result | Correlated WIN11-01 record |
+| --- | --- | --- | --- |
+| [4771, record 49719](../evidence/phase-05/04-dc01-authentication-correlation-failure.png) | `22:21:18.2733407` | Preauthentication failure, `0x18` | 4625, record 13502 |
+| [4768, record 49720](../evidence/phase-05/04-dc01-authentication-correlation-success.png) | `22:21:27.2779797` | Successful TGT request, `0x0` | 4624, record 13504 |
+
+The account, client address, outcome, and closely aligned source times
+support both pairings and corroborate Kerberos involvement in the test.
+The workstation's `::1` describes the local logon request, while the DC
+record shows the workstation address as seen by DC01. The DC01 evidence
+was verified locally in the Security log.
 
 
 [Case 001](001-controlled-failed-logon.md) documents the earlier local-only test.

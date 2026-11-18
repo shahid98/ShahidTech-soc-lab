@@ -973,3 +973,6 @@ After each lesson, record date, change, verification result, evidence link, know
   disposition in [Case 004](../investigations/004-failed-logon-wazuh-correlation.md).
 - Reviewed surrounding indexed activity. Wazuh showed a successful type 2
   logon for the same account and caller context about nine seconds later.
+- Correlated the failure and success with DC01 Kerberos events `4771`
+  (record `49719`) and `4768` (record `49720`) by account, client IP,
+  outcome, and source time. Both DC01 screenshots are linked in Case 004.
