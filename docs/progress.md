@@ -964,3 +964,12 @@ After each lesson, record date, change, verification result, evidence link, know
   indexed Wazuh alerts. The local events were approximately 14 seconds apart.
 - Documented the triage decision, evidence, response, and verification limits
   in [Case 003](../investigations/003-defender-wazuh-correlation.md).
+
+### Phase 5 — failed domain logon investigation documented
+
+- Matched WIN11-01 Security event `4625`, record `13502`, to the indexed
+  Wazuh alert by endpoint, channel, record ID, and Windows source time.
+- Recorded the incorrect-password substatus and the expected-test
+  disposition in [Case 004](../investigations/004-failed-logon-wazuh-correlation.md).
+- Reviewed surrounding indexed activity. Wazuh showed a successful type 2
+  logon for the same account and caller context about nine seconds later.

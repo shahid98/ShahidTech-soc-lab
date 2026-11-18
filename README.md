@@ -11,6 +11,7 @@ A practical security operations learning project for ShahidTech, a fictional 50-
 - [Case 001: controlled failed logon](investigations/001-controlled-failed-logon.md)
 - [Case 002: Defender detection and quarantine](investigations/002-defender-eicar-test.md)
 - [Case 003: Defender detection and quarantine in Wazuh](investigations/003-defender-wazuh-correlation.md)
+- [Case 004: Controlled failed domain logon in Wazuh](investigations/004-failed-logon-wazuh-correlation.md)
 - [Planned architecture](docs/architecture.md)
 - [Git workflow](docs/git-workflow.md)
 - [Lesson template](templates/lesson.md)
