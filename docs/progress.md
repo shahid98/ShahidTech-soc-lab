@@ -8,7 +8,7 @@
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
-| 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
+| 6 - Detection engineering | Tested rules and ATT&CK mappings | In progress |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
@@ -988,3 +988,11 @@ After each lesson, record date, change, verification result, evidence link, know
   and Wazuh. The successful DC01 TGT request is supported by endpoint evidence.
 - Both reports document the evidence, disposition, and limits of the
   authorized exercises. Phase 6 will build and validate detection rules.
+
+### Phase 6 — incorrect-password rule validated
+
+- Created [Wazuh rule 100100](../detections/README.md) to match event `4625`
+  with incorrect-password substatus `0xc000006a` under built-in rule `60122`.
+- WIN11-01 record `13607` fired rule `100100` (level 5). The unknown-account
+  comparison, record `13614` with substatus `0xc0000064`, fired built-in
+  rule `60122` (level 5). Both were indexed and captured as evidence.
