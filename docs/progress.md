@@ -836,3 +836,13 @@ After each lesson, record date, change, verification result, evidence link, know
 [Wazuh manager archive receipt](../evidence/phase-04/40-win11-powershell-archive-receipt.png)
 [Matching fresh local PowerShell records](../evidence/phase-04/41-win11-local-powershell-archive-marker.png)
 [JSON archive cleanup and manager status](../evidence/phase-04/42-wazuh-archive-test-cleanup.png)
+
+### WIN11-01 — fresh Defender detection and quarantine verified locally
+
+- Defender Real-Time Protection detected `Virus:DOS/EICAR_Test_File`
+  in `ShahidTech-EICAR-Wazuh-Test.txt` under `SHAHIDTECH\alex.morgan`.
+- Event 1117 recorded successful quarantine under `NT AUTHORITY\SYSTEM`
+  with error code `0x00000000`. Central Defender delivery remains pending.
+
+[Local Defender detection, event 1116](../evidence/phase-04/43-win11-local-defender-eicar-events.png)
+[Local Defender quarantine, event 1117](../evidence/phase-04/44-win11-local-defender-eicar-events-quarentine.png)
