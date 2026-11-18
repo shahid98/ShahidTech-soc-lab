@@ -7,7 +7,7 @@
 | 2 - Workstation | Verified domain join and policy application | Complete |
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
-| 5 - SOC investigations | Evidence-backed incident reports | Not started |
+| 5 - SOC investigations | Evidence-backed incident reports | In progress |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Not started |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
@@ -957,3 +957,10 @@ After each lesson, record date, change, verification result, evidence link, know
   alerting remain unverified. The DC01 browser displayed a dashboard
   certificate warning during the private-network check.
 - Phase 5 will use this baseline for evidence-backed SOC investigations.
+
+### Phase 5 — Defender alert investigation documented
+
+- Correlated WIN11-01 Defender detection and quarantine events with both
+  indexed Wazuh alerts. The local events were approximately 14 seconds apart.
+- Documented the triage decision, evidence, response, and verification limits
+  in [Case 003](../investigations/003-defender-wazuh-correlation.md).
