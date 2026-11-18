@@ -976,3 +976,5 @@ After each lesson, record date, change, verification result, evidence link, know
 - Correlated the failure and success with DC01 Kerberos events `4771`
   (record `49719`) and `4768` (record `49720`) by account, client IP,
   outcome, and source time. Both DC01 screenshots are linked in Case 004.
+- Matched DC01 record `49719` to Wazuh rule `60104` (level 5). The targeted
+  alert search for record `49720` returned no results in the checked range.

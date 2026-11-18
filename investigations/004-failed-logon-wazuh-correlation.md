@@ -61,5 +61,16 @@ The workstation's `::1` describes the local logon request, while the DC
 record shows the workstation address as seen by DC01. The DC01 evidence
 was verified locally in the Security log.
 
+### DC01 visibility in Wazuh
+
+Threat Hunting returned DC01 (`001`) Security event `4771`, record `49719`,
+under rule `60104` (level 5). The account, client address, failure code,
+and source UTC timestamp matched the local DC01 record. A targeted alert
+search for event `4768`, record `49720`, returned no results in the checked
+dashboard range. Manager receipt for `4768` remains unverified. The local
+DC01 Security log provides the evidence for the successful TGT request.
+
+[Indexed DC01 Kerberos failure](../evidence/phase-05/05-dc01-kerberos-wazuh-search.png)
+
 
 [Case 001](001-controlled-failed-logon.md) documents the earlier local-only test.
