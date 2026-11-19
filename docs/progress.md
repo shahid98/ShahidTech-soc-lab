@@ -10,7 +10,7 @@
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
 | 7 - PowerShell | Documented, verified administration scripts | Complete |
-| 8 - Entra ID | Cloud identity security exercises | In progress |
+| 8 - Entra ID | Cloud identity security exercises | Complete — Free-tier baseline verified |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
 
@@ -1096,3 +1096,14 @@ After each lesson, record date, change, verification result, evidence link, know
   MFA challenge was outside the evidence captured for this exercise.
 
 [Security Defaults enabled](../evidence/phase-08/05-entra-security-defaults-status.png)
+
+### Phase 8 closeout — Entra ID Free baseline complete
+
+- Verified the Free-tier directory, cloud-only test user, and direct
+  security group membership. Reviewed a successful user-initiated group
+  membership audit event. Matching its group target ID to the group
+  object remains unverified.
+- Traced Alex's interrupted and successful interactive sign-ins in the
+  admin logs and confirmed Security Defaults was enabled. The exact sign-in
+  method and completion of an MFA challenge remain unverified.
+- Phase 9 will cover Defender and Sentinel hunting and investigations.

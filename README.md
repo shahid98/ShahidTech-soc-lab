@@ -2,7 +2,7 @@
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: Phase 7 complete. The portfolio includes SOC investigations, live-tested Wazuh detection rules, and PowerShell health checks verified on WIN11-01 and DC01. Phase 8 covers Microsoft Entra ID.**
+**Status: Phase 8 complete. The portfolio includes SOC investigations, live-tested Wazuh rules, PowerShell health checks, and an Entra ID Free identity baseline. Phase 9 covers Defender and Sentinel.**
 
 ## Start here
 
@@ -14,6 +14,7 @@ A practical security operations learning project for ShahidTech, a fictional 50-
 - [Case 004: Controlled failed domain logon in Wazuh](investigations/004-failed-logon-wazuh-correlation.md)
 - [Wazuh detection rules and validation](detections/README.md)
 - [PowerShell administration scripts and validation](scripts/README.md)
+- [Microsoft Entra ID lab baseline](docs/progress.md#phase-8-closeout--entra-id-free-baseline-complete)
 - [Planned architecture](docs/architecture.md)
 - [Git workflow](docs/git-workflow.md)
 - [Lesson template](templates/lesson.md)
