@@ -2,7 +2,7 @@
 
 A practical security operations learning project for ShahidTech, a fictional 50-person company.
 
-**Status: Phase 5 complete. Wazuh centralizes Windows telemetry from DC01 and WIN11-01. The portfolio includes evidence-backed Defender and domain-authentication investigations. Phase 6 covers detection engineering.**
+**Status: Phase 6 complete. The portfolio includes evidence-backed Defender and domain-authentication investigations, plus live-tested Wazuh rules for single and repeated incorrect-password logons. Phase 7 covers PowerShell administration scripts.**
 
 ## Start here
 
@@ -12,6 +12,7 @@ A practical security operations learning project for ShahidTech, a fictional 50-
 - [Case 002: Defender detection and quarantine](investigations/002-defender-eicar-test.md)
 - [Case 003: Defender detection and quarantine in Wazuh](investigations/003-defender-wazuh-correlation.md)
 - [Case 004: Controlled failed domain logon in Wazuh](investigations/004-failed-logon-wazuh-correlation.md)
+- [Wazuh detection rules and validation](detections/README.md)
 - [Planned architecture](docs/architecture.md)
 - [Git workflow](docs/git-workflow.md)
 - [Lesson template](templates/lesson.md)

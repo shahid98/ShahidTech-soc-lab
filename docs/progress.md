@@ -8,7 +8,7 @@
 | 3 - Security logging | Windows, Sysmon, PowerShell telemetry | Complete — local baseline |
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
-| 6 - Detection engineering | Tested rules and ATT&CK mappings | In progress |
+| 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
 | 7 - PowerShell | Documented, verified administration scripts | Not started |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
@@ -1008,3 +1008,13 @@ After each lesson, record date, change, verification result, evidence link, know
 - The [time-window comparison](../evidence/phase-06/05-wazuh-repeated-incorrect-password-time-window.png)
   placed the third attempt about 96 seconds after the second. All three
   fired `100100`, with no `100101` alert in the sequence.
+
+### Phase 6 closeout — detection engineering baseline complete
+
+- [Detection rules and test evidence](../detections/README.md) cover
+  incorrect-password classification and repeated-failure correlation.
+- Live validation covered a wrong password, an unknown username, the
+  three-event threshold, and the 60-second window. Mixed-username behavior
+  remains untested because only one standard lab account was available.
+- Documented ATT&CK `T1110.001` as a triage mapping for the repeated-failure
+  pattern. Phase 7 will focus on documented PowerShell administration scripts.
