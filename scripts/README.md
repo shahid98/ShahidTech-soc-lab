@@ -29,3 +29,21 @@ of the check. Central delivery and continuous collection require separate tests.
 
 [WIN11-01 output](../evidence/phase-07/01-win11-windows-logging-baseline.png) ·
 [DC01 output](../evidence/phase-07/02-dc01-windows-logging-baseline.png)
+
+## Wazuh agent health
+
+[Test-WazuhAgentHealth.ps1](Test-WazuhAgentHealth.ps1) reports the status
+of `WazuhSvc`, the agent's local connection state, and TCP reachability
+to the manager. It expects the standard Windows Wazuh agent install path.
+Run from elevated Windows PowerShell 5.1 on the target VM:
+
+```powershell
+.\Test-WazuhAgentHealth.ps1 -ManagerAddress 10.10.10.30 -Port 1514 | Format-List
+```
+
+Both WIN11-01 and DC01 reported `Running`, `connected`, and `True` for TCP
+reachability to `10.10.10.30:1514`. This is a point-in-time connection
+check. Use a fresh endpoint event to verify delivery and indexing.
+
+[WIN11-01 output](../evidence/phase-07/03-win11-wazuh-agent-health.png) ·
+[DC01 output](../evidence/phase-07/04-dc01-wazuh-agent-health.png)

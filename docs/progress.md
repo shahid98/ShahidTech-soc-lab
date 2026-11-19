@@ -1027,3 +1027,11 @@ After each lesson, record date, change, verification result, evidence link, know
 - Both hosts returned retained records for events `4688`, `4103`, `4104`,
   and Sysmon `1`. The script verifies local configuration and record
   availability at the time of execution.
+
+### Phase 7 — Wazuh agent health script verified
+
+- Ran the [endpoint health script](../scripts/README.md#wazuh-agent-health)
+  on WIN11-01 and DC01. Both reported `WazuhSvc` running, agent state
+  `connected`, and TCP reachability to WAZUH01 at `10.10.10.30:1514`.
+- Linked both outputs in the script notes. The check covers the local
+  agent and network path at the time of execution.
