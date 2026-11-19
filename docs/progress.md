@@ -9,7 +9,7 @@
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
-| 7 - PowerShell | Documented, verified administration scripts | In progress |
+| 7 - PowerShell | Documented, verified administration scripts | Complete |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
@@ -1035,3 +1035,12 @@ After each lesson, record date, change, verification result, evidence link, know
   `connected`, and TCP reachability to WAZUH01 at `10.10.10.30:1514`.
 - Linked both outputs in the script notes. The check covers the local
   agent and network path at the time of execution.
+
+### Phase 7 closeout — PowerShell administration scripts verified
+
+- Verified both [read-only PowerShell health checks](../scripts/README.md)
+  on WIN11-01 and DC01, with usage instructions and four evidence captures.
+- The logging script checks local configuration and retained event metadata.
+  The Wazuh script checks agent service state, connection state, and TCP
+  reachability. Both checks report conditions at the time they run.
+- Phase 8 will cover cloud identity security exercises in Microsoft Entra ID.
