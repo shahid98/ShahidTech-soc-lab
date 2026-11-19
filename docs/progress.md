@@ -10,7 +10,7 @@
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
 | 7 - PowerShell | Documented, verified administration scripts | Complete |
-| 8 - Entra ID | Cloud identity security exercises | Not started |
+| 8 - Entra ID | Cloud identity security exercises | In progress |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
 
@@ -1044,3 +1044,13 @@ After each lesson, record date, change, verification result, evidence link, know
   The Wazuh script checks agent service state, connection state, and TCP
   reachability. Both checks report conditions at the time they run.
 - Phase 8 will cover cloud identity security exercises in Microsoft Entra ID.
+
+### Phase 8 — Microsoft Entra tenant baseline verified
+
+- The Azure portal showed Microsoft Entra ID Free and the signed-in account
+  held the Global Administrator role in the directory.
+- The overview showed one user, zero groups, zero applications, and zero
+  devices. Microsoft Entra Connect was disabled and had never synchronized.
+- The overview check was read-only.
+
+[Entra ID Free license and directory counts](../evidence/phase-08/01-entra-lab-tenant-license.png)
