@@ -996,3 +996,12 @@ After each lesson, record date, change, verification result, evidence link, know
 - WIN11-01 record `13607` fired rule `100100` (level 5). The unknown-account
   comparison, record `13614` with substatus `0xc0000064`, fired built-in
   rule `60122` (level 5). Both were indexed and captured as evidence.
+
+### Phase 6 — repeated incorrect-password threshold verified
+
+- [Wazuh rule 100101](../detections/README.md) correlates three incorrect
+  passwords for the same target username on one agent within 60 seconds.
+- WIN11-01 records `13635` and `13641` fired `100100`. The third record,
+  `13643`, fired `100101` at level 8 with frequency 3.
+- Documented password guessing (`T1110.001`) as a triage mapping and
+  linked [the live test](../evidence/phase-06/04-wazuh-repeated-incorrect-password-threshold.png).

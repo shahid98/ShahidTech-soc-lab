@@ -23,3 +23,27 @@ The unknown-account alert confirms the negative input reached Wazuh and
 matched the built-in parent. A single incorrect-password event records a
 credential failure. This rule adds no ATT&CK mapping because the event
 alone provides insufficient evidence of an adversary technique.
+
+## Wazuh rule 100101 — repeated Windows incorrect passwords
+
+[Rule XML](100101-windows-repeated-incorrect-passwords.xml) · [Live threshold test](../evidence/phase-06/04-wazuh-repeated-incorrect-password-threshold.png)
+
+Rule `100101` correlates three `100100` matches for the same target
+username on one agent within 60 seconds. It raises a level 8 alert.
+Load rule `100100` before deploying this rule. The threshold is for the lab.
+
+| WIN11-01 Security record | Indexed rule | Level |
+| --- | --- | --- |
+| `13635` | `100100` | 5 |
+| `13641` | `100100` | 5 |
+| `13643` | `100101` | 8 |
+
+In the controlled test for `alex.morgan`, both earlier records stayed at
+level 5. The third alert reported frequency 3 and included both earlier
+records in its correlation context. Separate tests for mixed usernames
+and attempts outside the 60-second window remain pending.
+
+Repeated wrong passwords against one account can support triage for password
+guessing. User typos and stale credentials can also generate this pattern.
+The lab test verifies threshold behavior. The ATT&CK mapping is documented
+here for triage. [MITRE ATT&CK T1110.001](https://attack.mitre.org/techniques/T1110/001/)
