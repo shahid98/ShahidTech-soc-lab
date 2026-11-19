@@ -9,7 +9,7 @@
 | 4 - Wazuh | Centralized logs and agent connectivity | Complete — baseline verified |
 | 5 - SOC investigations | Evidence-backed incident reports | Complete |
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
-| 7 - PowerShell | Documented, verified administration scripts | Not started |
+| 7 - PowerShell | Documented, verified administration scripts | In progress |
 | 8 - Entra ID | Cloud identity security exercises | Not started |
 | 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
@@ -1018,3 +1018,12 @@ After each lesson, record date, change, verification result, evidence link, know
   remains untested because only one standard lab account was available.
 - Documented ATT&CK `T1110.001` as a triage mapping for the repeated-failure
   pattern. Phase 7 will focus on documented PowerShell administration scripts.
+
+### Phase 7 — Windows logging health check verified
+
+- Ran the [read-only baseline script](../scripts/README.md) in Windows
+  PowerShell on WIN11-01 and DC01. Both hosts met the enabled, capacity,
+  and circular-mode checks for Security, PowerShell, and Sysmon.
+- Both hosts returned retained records for events `4688`, `4103`, `4104`,
+  and Sysmon `1`. The script verifies local configuration and record
+  availability at the time of execution.
