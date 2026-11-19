@@ -1054,3 +1054,13 @@ After each lesson, record date, change, verification result, evidence link, know
 - The overview check was read-only.
 
 [Entra ID Free license and directory counts](../evidence/phase-08/01-entra-lab-tenant-license.png)
+
+### Phase 8 — cloud-only user and security group verified
+
+- Created `Alex Morgan (Lab)` as a cloud-only member without a directory
+  role assignment and added the user to the assigned security group
+  `SG-ShahidTech-Lab-Users`.
+- Confirmed Alex was listed under Direct members. The exercise verified
+  directory membership. Resource access was outside the test.
+
+[Direct membership in the lab security group](../evidence/phase-08/02-entra-cloud-user-security-group.png)
