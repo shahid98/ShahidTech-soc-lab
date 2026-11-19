@@ -11,7 +11,7 @@
 | 6 - Detection engineering | Tested rules and ATT&CK mappings | Complete — lab baseline verified |
 | 7 - PowerShell | Documented, verified administration scripts | Complete |
 | 8 - Entra ID | Cloud identity security exercises | Complete — Free-tier baseline verified |
-| 9 - Defender and Sentinel | Hunting and investigation exercises | Not started |
+| 9 - Defender and Sentinel | Hunting and investigation exercises | In progress |
 | 10 - Portfolio | Curated case studies and interview practice | Not started |
 
 ### Phase 0 checkpoint — VM storage configured
@@ -1107,3 +1107,19 @@ After each lesson, record date, change, verification result, evidence link, know
   admin logs and confirmed Security Defaults was enabled. The exact sign-in
   method and completion of an MFA challenge remain unverified.
 - Phase 9 will cover Defender and Sentinel hunting and investigations.
+
+### Phase 9 — Azure and Defender portal readiness checked
+
+- Azure showed the Azure for Students subscription as Active and the
+  administrator's subscription role as Owner. Remaining credit was not
+  verified. The workspace list showed zero Log Analytics workspaces.
+- The personal account received a tenant/account selection error in the
+  Defender portal. The cloud-only lab user opened Defender Home in a
+  private browser session.
+- The expanded menu for the lab user included Trials, Exposure management,
+  Reports, Audit, and Settings. Hunting and Microsoft Sentinel were absent
+  from that menu in the tested session.
+- This was a read-only check. Sentinel workspace access, Defender XDR
+  licensing, and endpoint onboarding remain unverified.
+
+[Defender Home and navigation as the cloud-only lab user](../evidence/phase-09/01-defender-portal-cloud-user-access.png)
