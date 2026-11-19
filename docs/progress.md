@@ -1075,3 +1075,14 @@ After each lesson, record date, change, verification result, evidence link, know
   Alex in `SG-ShahidTech-Lab-Users`.
 
 [Group membership audit entry](../evidence/phase-08/03-entra-group-membership-audit.png)
+
+### Phase 8 — Entra interactive sign-in verified
+
+- Entra interactive sign-in logs recorded an interrupted `My Profile`
+  attempt for Alex at `2026-11-19T02:50:41Z`. The entry cited an expired
+  password.
+- A later `My Profile` entry for Alex at `2026-11-19T02:51:00Z` showed
+  `Success` and a `Single-factor authentication` requirement. The exact
+  method was outside the captured fields.
+
+[Successful interactive sign-in and authentication requirement](../evidence/phase-08/04-entra-lab-user-interactive-sign-in.png)
