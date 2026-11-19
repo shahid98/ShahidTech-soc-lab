@@ -1086,3 +1086,13 @@ After each lesson, record date, change, verification result, evidence link, know
   method was outside the captured fields.
 
 [Successful interactive sign-in and authentication requirement](../evidence/phase-08/04-entra-lab-user-interactive-sign-in.png)
+
+### Phase 8 — Entra Security Defaults verified
+
+- The tenant's Security Defaults pane showed `Enabled` and confirmed
+  the organization was using Security Defaults. This was a read-only check.
+- Alex's earlier sign-in entry recorded its own single-factor requirement.
+  The tenant setting and the sign-in entry describe different scopes. An
+  MFA challenge was outside the evidence captured for this exercise.
+
+[Security Defaults enabled](../evidence/phase-08/05-entra-security-defaults-status.png)
