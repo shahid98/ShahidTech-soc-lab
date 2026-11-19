@@ -1064,3 +1064,14 @@ After each lesson, record date, change, verification result, evidence link, know
   directory membership. Resource access was outside the test.
 
 [Direct membership in the lab security group](../evidence/phase-08/02-entra-cloud-user-security-group.png)
+
+### Phase 8 — Entra group membership audit reviewed
+
+- Entra Audit Logs showed a successful `Add member to group` activity
+  in `GroupManagement` at 2026-11-18 20:45:24 local portal time.
+- The initiator type was `User`. The target details identified the Alex
+  lab account and listed a group target by ID. That ID was not compared
+  against the group's Overview. The direct membership view above shows
+  Alex in `SG-ShahidTech-Lab-Users`.
+
+[Group membership audit entry](../evidence/phase-08/03-entra-group-membership-audit.png)
