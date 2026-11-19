@@ -40,8 +40,13 @@ Load rule `100100` before deploying this rule. The threshold is for the lab.
 
 In the controlled test for `alex.morgan`, both earlier records stayed at
 level 5. The third alert reported frequency 3 and included both earlier
-records in its correlation context. Separate tests for mixed usernames
-and attempts outside the 60-second window remain pending.
+records in its correlation context.
+
+In the [time-window comparison](../evidence/phase-06/05-wazuh-repeated-incorrect-password-time-window.png),
+the dashboard showed two attempts close together, followed by a third about
+96 seconds after the second. All three matched rule `100100` at level 5.
+The selected test sequence produced no `100101` alert. Mixed-username
+behavior remains untested because only one standard lab account was available.
 
 Repeated wrong passwords against one account can support triage for password
 guessing. User typos and stale credentials can also generate this pattern.

@@ -1005,3 +1005,6 @@ After each lesson, record date, change, verification result, evidence link, know
   `13643`, fired `100101` at level 8 with frequency 3.
 - Documented password guessing (`T1110.001`) as a triage mapping and
   linked [the live test](../evidence/phase-06/04-wazuh-repeated-incorrect-password-threshold.png).
+- The [time-window comparison](../evidence/phase-06/05-wazuh-repeated-incorrect-password-time-window.png)
+  placed the third attempt about 96 seconds after the second. All three
+  fired `100100`, with no `100101` alert in the sequence.
